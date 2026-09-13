@@ -13,6 +13,80 @@
   >
 
   <link rel="stylesheet" href="./style.css">
+
+  <style>
+    .brand-logo {
+      width: 48px;
+      height: 48px;
+      object-fit: cover;
+      border: 1px solid #ff7900;
+      border-radius: 50%;
+      box-shadow: 0 0 12px rgba(255, 121, 0, 0.4);
+    }
+
+    .contact-grid {
+      max-width: 900px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin: auto;
+    }
+
+    .contact-grid article {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      padding: 22px;
+      border: 1px solid #6d3000;
+      border-radius: 15px;
+      background: #070200;
+      text-align: center;
+    }
+
+    .contact-grid h3 {
+      color: #ff7900;
+    }
+
+    .contact-grid a {
+      color: #ffad4d;
+    }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 9px;
+      margin-top: 18px;
+    }
+
+    .social-grid a {
+      padding: 15px 8px;
+      border: 1px solid #6d3000;
+      border-radius: 10px;
+      color: #ffad4d;
+      background: #070200;
+      text-align: center;
+      font-size: 0.62rem;
+      font-weight: 1000;
+      transition: 0.25s;
+    }
+
+    .social-grid a:hover {
+      color: #000000;
+      background: #ff7900;
+      box-shadow: 0 0 25px rgba(255, 121, 0, 0.4);
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 700px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .social-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -27,24 +101,47 @@
   </div>
 
   <header>
+
     <a class="brand" href="#home">
-      🎛️
+      <img
+        class="brand-logo"
+        src="./pro-max-beat-maker-ai-school-logo.png"
+        alt="PRO-MAX Beat Maker AI School"
+      >
+
       <span>PRO-MAX</span>
       <small>BEAT MAKER AI SCHOOL</small>
     </a>
 
     <nav id="nav">
-      <a href="#home" data-ht="AKÈY" data-fr="ACCUEIL" data-en="HOME">
+      <a
+        href="#home"
+        data-ht="AKÈY"
+        data-fr="ACCUEIL"
+        data-en="HOME"
+      >
         AKÈY
       </a>
 
-      <a href="#courses" data-ht="KOU" data-fr="COURS" data-en="COURSES">
+      <a
+        href="#courses"
+        data-ht="KOU"
+        data-fr="COURS"
+        data-en="COURSES"
+      >
         KOU
       </a>
 
-      <a href="#professor">AI PROFESSOR</a>
+      <a href="#professor">
+        AI PROFESSOR
+      </a>
 
-      <a href="#exam" data-ht="EGZAMEN" data-fr="EXAMEN" data-en="EXAM">
+      <a
+        href="#exam"
+        data-ht="EGZAMEN"
+        data-fr="EXAMEN"
+        data-en="EXAM"
+      >
         EGZAMEN
       </a>
 
@@ -56,26 +153,55 @@
       >
         SÈTIFIKA
       </a>
+
+      <a
+        href="#contact"
+        data-ht="KONTAK"
+        data-fr="CONTACT"
+        data-en="CONTACT"
+      >
+        KONTAK
+      </a>
     </nav>
 
     <div class="head-actions">
+
       <div class="langs">
-        <button type="button" data-lang="ht" class="active">KRE</button>
-        <button type="button" data-lang="en">ENG</button>
-        <button type="button" data-lang="fr">FRA</button>
+        <button type="button" data-lang="fr">
+          FRA
+        </button>
+
+        <button type="button" data-lang="en">
+          ENG
+        </button>
+
+        <button type="button" data-lang="ht" class="active">
+          KRE
+        </button>
       </div>
 
-      <button type="button" id="menu" aria-label="Menu">☰</button>
+      <button
+        type="button"
+        id="menu"
+        aria-label="Menu"
+      >
+        ☰
+      </button>
+
     </div>
   </header>
 
   <main>
 
     <section class="hero" id="home">
+
       <div class="hero-glow"></div>
 
       <div class="hero-copy">
-        <p class="eyebrow">BSS1815 PRO-MAX DMP</p>
+
+        <p class="eyebrow">
+          BSS1815 PRO-MAX DMP
+        </p>
 
         <h1>
           PRO-MAX<br>
@@ -94,6 +220,7 @@
         </p>
 
         <div class="actions">
+
           <a
             class="btn primary"
             href="#courses"
@@ -113,34 +240,53 @@
           >
             OUVRI BEAT MAKER
           </a>
+
         </div>
       </div>
 
       <div class="console">
+
         <div class="screen">
           <div class="wave"></div>
-          <strong>AI AUDIO WORKSTATION</strong>
-          <span id="heroStatus">READY TO CREATE</span>
+
+          <strong>
+            AI AUDIO WORKSTATION
+          </strong>
+
+          <span id="heroStatus">
+            READY TO CREATE
+          </span>
         </div>
 
-        <div class="console-pads">
-          <span>♪</span>
-          <span>♫</span>
-          <span>♬</span>
-          <span>🎹</span>
+        <div class="pads">
+          ♪ ♫ ♬ 🎹
         </div>
+
       </div>
     </section>
 
     <section class="stats">
+
       <div>
         <strong>10</strong>
-        <span data-ht="KOU" data-fr="COURS" data-en="COURSES">KOU</span>
+
+        <span
+          data-ht="KOU"
+          data-fr="COURS"
+          data-en="COURSES"
+        >
+          KOU
+        </span>
       </div>
 
       <div>
         <strong>3</strong>
-        <span data-ht="LANG" data-fr="LANGUES" data-en="LANGUAGES">
+
+        <span
+          data-ht="LANG"
+          data-fr="LANGUES"
+          data-en="LANGUAGES"
+        >
           LANG
         </span>
       </div>
@@ -152,15 +298,25 @@
 
       <div>
         <strong>100%</strong>
-        <span data-ht="PRATIK" data-fr="PRATIQUE" data-en="PRACTICAL">
+
+        <span
+          data-ht="PRATIK"
+          data-fr="PRATIQUE"
+          data-en="PRACTICAL"
+        >
           PRATIK
         </span>
       </div>
+
     </section>
 
     <section class="section" id="courses">
+
       <div class="section-head">
-        <p class="eyebrow">PROFESSIONAL LEARNING PATH</p>
+
+        <p class="eyebrow">
+          PROFESSIONAL LEARNING PATH
+        </p>
 
         <h2
           data-ht="10 KOU PRENSIPAL"
@@ -170,19 +326,32 @@
           10 KOU PRENSIPAL
         </h2>
 
-        <p id="progressText">PWOGRÈ: 0 / 10</p>
+        <p id="progressText">
+          PWOGRÈ: 0 / 10
+        </p>
 
         <div class="progress">
           <i id="progressBar"></i>
         </div>
+
       </div>
 
-      <div class="course-grid" id="courseGrid"></div>
+      <div
+        class="course-grid"
+        id="courseGrid"
+      ></div>
+
     </section>
 
-    <section class="section professor" id="professor">
+    <section
+      class="section professor"
+      id="professor"
+    >
+
       <div>
-        <p class="eyebrow">INTELLIGENCE ARTIFICIELLE</p>
+        <p class="eyebrow">
+          INTELLIGENCE ARTIFICIELLE
+        </p>
 
         <h2
           data-ht="MANDE AI PROFESSOR"
@@ -197,12 +366,13 @@
           data-fr="Posez une question sur le BPM, le rythme, la mélodie, le compas, le rara, le mixage ou le mastering."
           data-en="Ask about BPM, rhythm, melody, Kompa, Rara, mixing or mastering."
         >
-          Poze yon kesyon sou BPM, ritm, melodi, konpa, rara,
-          mixing oswa mastering.
+          Poze yon kesyon sou BPM, ritm, melodi,
+          konpa, rara, mixing oswa mastering.
         </p>
       </div>
 
       <div class="chat">
+
         <div class="messages" id="messages">
           <div class="bot">
             🎓 Bonjou! Mwen se PRO-MAX AI Professor.
@@ -211,6 +381,7 @@
         </div>
 
         <form id="askForm">
+
           <input
             id="question"
             autocomplete="off"
@@ -218,14 +389,25 @@
             required
           >
 
-          <button class="btn primary" type="submit">ASK AI</button>
+          <button
+            class="btn primary"
+            type="submit"
+          >
+            ASK AI
+          </button>
+
         </form>
       </div>
+
     </section>
 
     <section class="section" id="exam">
+
       <div class="section-head">
-        <p class="eyebrow">FINAL ASSESSMENT</p>
+
+        <p class="eyebrow">
+          FINAL ASSESSMENT
+        </p>
 
         <h2
           data-ht="EGZAMEN PRATIK"
@@ -242,14 +424,23 @@
         >
           Reponn 5 kesyon. Ou bezwen 80% pou pase.
         </p>
+
       </div>
 
-      <form class="exam-card" id="examForm"></form>
+      <form
+        class="exam-card"
+        id="examForm"
+      ></form>
+
     </section>
 
     <section class="section" id="certificate">
+
       <div class="certificate">
-        <p>BSS1815 PRO-MAX DMP</p>
+
+        <p>
+          BSS1815 PRO-MAX DMP
+        </p>
 
         <h2
           data-ht="SANT SÈTIFIKA"
@@ -264,40 +455,213 @@
           data-fr="Terminez les 10 cours et réussissez l’examen pour débloquer votre certificat."
           data-en="Complete all 10 courses and pass the exam to unlock your certificate."
         >
-          Fini 10 kou yo epi pase egzamen an pou debloke sètifika ou.
+          Fini 10 kou yo epi pase egzamen an
+          pou debloke sètifika ou.
         </p>
 
-        <input id="studentName" placeholder="Non konplè elèv la">
+        <input
+          id="studentName"
+          placeholder="Non konplè elèv la"
+        >
 
-        <button class="btn primary" id="certificateBtn" type="button">
+        <button
+          class="btn primary"
+          id="certificateBtn"
+          type="button"
+        >
           GENERATE CERTIFICATE
         </button>
 
         <p id="certificateMessage"></p>
+
       </div>
+
+    </section>
+
+    <section class="section" id="contact">
+
+      <div class="section-head">
+
+        <p class="eyebrow">
+          BSS1815 PRO-MAX DMP
+        </p>
+
+        <h2
+          data-ht="KONTAK & REZO SOSYAL"
+          data-fr="CONTACT & RÉSEAUX SOCIAUX"
+          data-en="CONTACT & SOCIAL NETWORKS"
+        >
+          KONTAK & REZO SOSYAL
+        </h2>
+
+      </div>
+
+      <div class="contact-grid">
+
+        <article>
+          <h3>🇺🇸 USA</h3>
+
+          <a href="tel:+14076405166">
+            (407) 640-5166
+          </a>
+
+          <a href="tel:+15162168494">
+            (516) 216-8494
+          </a>
+
+          <a href="tel:+13175381150">
+            (317) 538-1150
+          </a>
+        </article>
+
+        <article>
+          <h3>🇭🇹 HAITI</h3>
+
+          <a href="tel:+5094254447">
+            +509 42 54 4447
+          </a>
+
+          <a href="tel:+50943437488">
+            +509 43 43 7488
+          </a>
+        </article>
+
+      </div>
+
+      <div class="social-grid">
+
+        <a
+          href="https://www.facebook.com/share/1By3KvYRrM/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          FACEBOOK
+        </a>
+
+        <a
+          href="https://wa.me/50943437488"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          WHATSAPP
+        </a>
+
+        <a
+          href="https://www.instagram.com/lebaron072/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          INSTAGRAM
+        </a>
+
+        <a
+          href="https://www.tiktok.com/@maximax1960"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          TIKTOK
+        </a>
+
+        <a
+          href="https://t.me/bss1815dmp"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          TELEGRAM
+        </a>
+
+        <a
+          href="https://www.youtube.com/@BSS1815PROMAXDMP"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          YOUTUBE
+        </a>
+
+        <a
+          href="https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          SPOTIFY
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/maximax-multi-services-075ba2314"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LINKEDIN
+        </a>
+
+        <a
+          href="https://truthsocial.com/@briyant_soley_1815"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          TRUTH SOCIAL
+        </a>
+
+        <a
+          href="https://x.com/w05g2m"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          X / TWITTER
+        </a>
+
+      </div>
+
     </section>
 
   </main>
 
   <div class="modal" id="lessonModal">
+
     <article>
-      <button type="button" id="closeLesson">✕</button>
+
+      <button
+        type="button"
+        id="closeLesson"
+      >
+        ✕
+      </button>
+
       <span id="lessonIcon"></span>
+
       <h2 id="lessonTitle"></h2>
+
       <div id="lessonBody"></div>
 
-      <button class="btn primary" id="completeLesson" type="button">
+      <button
+        class="btn primary"
+        id="completeLesson"
+        type="button"
+      >
         ✓ MARK COMPLETE
       </button>
+
     </article>
+
   </div>
 
   <footer>
-    <strong>PRO-MAX BEAT MAKER AI SCHOOL</strong>
-    <p>DEVAN DEVAN NÈT • BATI POU JODI A • PARE POU DEMEN</p>
-    <p>© <span id="year"></span> BSS1815 PRO-MAX DMP</p>
+
+    <strong>
+      PRO-MAX BEAT MAKER AI SCHOOL
+    </strong>
+
+    <p>
+      DEVAN DEVAN NÈT • BATI POU JODI A • PARE POU DEMEN
+    </p>
+
+    <p>
+      © <span id="year"></span> BSS1815 PRO-MAX DMP
+    </p>
+
   </footer>
 
   <script src="./javascript.js"></script>
+
 </body>
 </html>
