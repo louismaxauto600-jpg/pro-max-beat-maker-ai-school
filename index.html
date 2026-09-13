@@ -29,6 +29,59 @@
       box-shadow: 0 0 12px rgba(255, 121, 0, 0.4);
     }
 
+    .professor-information {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .professor-video-card {
+      width: min(390px, 100%);
+      margin-top: 8px;
+      padding: 12px;
+      border: 2px solid #ff7900;
+      border-radius: 20px;
+      background:
+        radial-gradient(
+          circle at top,
+          rgba(255, 121, 0, 0.16),
+          transparent 42%
+        ),
+        #000000;
+      box-shadow:
+        0 0 22px rgba(255, 121, 0, 0.4);
+    }
+
+    .professor-video-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+      color: #ff7900;
+      font-size: 0.68rem;
+      font-weight: 1000;
+      letter-spacing: 0.06em;
+    }
+
+    .professor-video {
+      width: 100%;
+      max-height: 590px;
+      display: block;
+      border: 1px solid #6d3000;
+      border-radius: 14px;
+      object-fit: contain;
+      background: #000000;
+    }
+
+    .professor-video-note {
+      margin-top: 10px;
+      color: #ffad4d;
+      text-align: center;
+      font-size: 0.63rem;
+      line-height: 1.5;
+    }
+
     .contact-grid {
       width: min(900px, 100%);
       display: grid;
@@ -109,7 +162,8 @@
     .social-grid a:hover {
       color: #000000;
       background: #ff7900;
-      box-shadow: 0 0 25px rgba(255, 121, 0, 0.4);
+      box-shadow:
+        0 0 25px rgba(255, 121, 0, 0.4);
       transform: translateY(-3px);
     }
 
@@ -126,6 +180,10 @@
     }
 
     @media (max-width: 700px) {
+      .professor-video-card {
+        width: 100%;
+      }
+
       .contact-grid {
         grid-template-columns: 1fr;
       }
@@ -312,7 +370,6 @@
       <div class="console">
 
         <div class="screen">
-
           <div class="wave"></div>
 
           <strong>
@@ -322,7 +379,6 @@
           <span id="heroStatus">
             READY TO CREATE
           </span>
-
         </div>
 
         <div class="pads">
@@ -416,28 +472,67 @@
       id="professor"
     >
 
-      <div>
+      <div class="professor-information">
 
-        <p class="eyebrow">
-          INTELLIGENCE ARTIFICIELLE
-        </p>
+        <div>
 
-        <h2
-          data-ht="MANDE AI PROFESSOR"
-          data-fr="DEMANDEZ AU PROFESSEUR IA"
-          data-en="ASK AI PROFESSOR"
-        >
-          MANDE AI PROFESSOR
-        </h2>
+          <p class="eyebrow">
+            INTELLIGENCE ARTIFICIELLE
+          </p>
 
-        <p
-          data-ht="Poze yon kesyon sou BPM, ritm, melodi, konpa, rara, mixing oswa mastering."
-          data-fr="Posez une question sur le BPM, le rythme, la mélodie, le compas, le rara, le mixage ou le mastering."
-          data-en="Ask about BPM, rhythm, melody, Kompa, Rara, mixing or mastering."
-        >
-          Poze yon kesyon sou BPM, ritm, melodi,
-          konpa, rara, mixing oswa mastering.
-        </p>
+          <h2
+            data-ht="MANDE AI PROFESSOR"
+            data-fr="DEMANDEZ AU PROFESSEUR IA"
+            data-en="ASK AI PROFESSOR"
+          >
+            MANDE AI PROFESSOR
+          </h2>
+
+          <p
+            data-ht="Gade prezantasyon pwofesè a epi poze yon kesyon sou BPM, ritm, melodi, konpa, rara, mixing oswa mastering."
+            data-fr="Regardez la présentation du professeur et posez une question sur le BPM, le rythme, la mélodie, le compas, le rara, le mixage ou le mastering."
+            data-en="Watch the professor's presentation and ask about BPM, rhythm, melody, Kompa, Rara, mixing or mastering."
+          >
+            Gade prezantasyon pwofesè a epi poze yon kesyon
+            sou BPM, ritm, melodi, konpa, rara,
+            mixing oswa mastering.
+          </p>
+
+        </div>
+
+        <div class="professor-video-card">
+
+          <div class="professor-video-label">
+            <span>🎓 PRO-MAX AI PROFESSOR</span>
+            <span>OFFICIAL</span>
+          </div>
+
+          <video
+            id="professorVideo"
+            class="professor-video"
+            controls
+            playsinline
+            preload="metadata"
+            poster="./pro-max-beat-maker-ai-school-logo.png"
+          >
+            <source
+              src="./pro-max-ai-professor.mp4"
+              type="video/mp4"
+            >
+
+            Browser ou a pa sipòte videyo MP4.
+          </video>
+
+          <p
+            class="professor-video-note"
+            data-ht="Peze Play pou koute pwofesè PRO-MAX la."
+            data-fr="Appuyez sur Play pour écouter le professeur PRO-MAX."
+            data-en="Press Play to listen to the PRO-MAX professor."
+          >
+            Peze Play pou koute pwofesè PRO-MAX la.
+          </p>
+
+        </div>
 
       </div>
 
@@ -615,11 +710,7 @@
           rel="noopener noreferrer"
           aria-label="Facebook"
         >
-          <i
-            class="fa-brands fa-facebook-f"
-            aria-hidden="true"
-          ></i>
-
+          <i class="fa-brands fa-facebook-f"></i>
           <span>FACEBOOK</span>
         </a>
 
@@ -629,11 +720,7 @@
           rel="noopener noreferrer"
           aria-label="WhatsApp"
         >
-          <i
-            class="fa-brands fa-whatsapp"
-            aria-hidden="true"
-          ></i>
-
+          <i class="fa-brands fa-whatsapp"></i>
           <span>WHATSAPP</span>
         </a>
 
@@ -643,11 +730,7 @@
           rel="noopener noreferrer"
           aria-label="Instagram"
         >
-          <i
-            class="fa-brands fa-instagram"
-            aria-hidden="true"
-          ></i>
-
+          <i class="fa-brands fa-instagram"></i>
           <span>INSTAGRAM</span>
         </a>
 
@@ -657,11 +740,7 @@
           rel="noopener noreferrer"
           aria-label="TikTok"
         >
-          <i
-            class="fa-brands fa-tiktok"
-            aria-hidden="true"
-          ></i>
-
+          <i class="fa-brands fa-tiktok"></i>
           <span>TIKTOK</span>
         </a>
 
@@ -671,11 +750,7 @@
           rel="noopener noreferrer"
           aria-label="Telegram"
         >
-          <i
-            class="fa-brands fa-telegram"
-            aria-hidden="true"
-          ></i>
-
+          <i class="fa-brands fa-telegram"></i>
           <span>TELEGRAM</span>
         </a>
 
@@ -685,11 +760,7 @@
           rel="noopener noreferrer"
           aria-label="YouTube"
         >
-          <i
-            class="fa-brands fa-youtube"
-            aria-hidden="true"
-          ></i>
-
+          <i class="fa-brands fa-youtube"></i>
           <span>YOUTUBE</span>
         </a>
 
@@ -699,11 +770,7 @@
           rel="noopener noreferrer"
           aria-label="Spotify"
         >
-          <i
-            class="fa-brands fa-spotify"
-            aria-hidden="true"
-          ></i>
-
+          <i class="fa-brands fa-spotify"></i>
           <span>SPOTIFY</span>
         </a>
 
@@ -713,11 +780,7 @@
           rel="noopener noreferrer"
           aria-label="LinkedIn"
         >
-          <i
-            class="fa-brands fa-linkedin-in"
-            aria-hidden="true"
-          ></i>
-
+          <i class="fa-brands fa-linkedin-in"></i>
           <span>LINKEDIN</span>
         </a>
 
@@ -727,13 +790,7 @@
           rel="noopener noreferrer"
           aria-label="Truth Social"
         >
-          <span
-            class="truth-icon"
-            aria-hidden="true"
-          >
-            T
-          </span>
-
+          <span class="truth-icon">T</span>
           <span>TRUTH SOCIAL</span>
         </a>
 
@@ -743,11 +800,7 @@
           rel="noopener noreferrer"
           aria-label="X Twitter"
         >
-          <i
-            class="fa-brands fa-x-twitter"
-            aria-hidden="true"
-          ></i>
-
+          <i class="fa-brands fa-x-twitter"></i>
           <span>X / TWITTER</span>
         </a>
 
