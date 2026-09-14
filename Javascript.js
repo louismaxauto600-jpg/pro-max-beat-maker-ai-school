@@ -374,67 +374,74 @@
       );
     });
 
-  const professorAnswers = {
-    bpm:
-      "BPM vle di beats per minute. Pou konpa, ou ka kòmanse anviwon 90–120 BPM epi ajiste selon groove la.",
+  // ============================================
+  // PWOFESÈ AI — KOUNYE A KONEKTE AK GEMINI
+  // (Sèl pati sa a chanje; tout rès fichye a
+  // rete egzakteman jan li te ye)
+  // ============================================
 
-    tempo:
-      "Tempo se vitès mizik la. Yon BPM ba bay yon mouvman pi dous; yon BPM wo bay plis enèji.",
+  const GEMINI_API_KEY =
+    "AQ.Ab8RN6KBB-sJlVuUGq3llvBcLuIXIR_BW39LybDlcnFOW_a44A";
 
-    ritm:
-      "Kòmanse ak kick, snare ak hi-hat. Fè yon pattern senp 8-step, apre sa ajoute variation.",
+  const GEMINI_MODEL = "gemini-3.6-flash";
 
-    rhythm:
-      "Start with kick, snare and hi-hat. Build a simple 8-step pattern, then add variations.",
+  const PROFESSOR_CONTEXT =
+    "Ou se yon pwofesè AI k ap ede elèv yo nan " +
+    "PRO-MAX Beat Maker AI School, yon lekòl " +
+    "pwodiksyon mizik. Reponn kesyon yo klè, senp, " +
+    "an kreyòl ayisyen (sof si elèv la poze kesyon " +
+    "an nan yon lòt lang), ak yon ton pwofesyonèl " +
+    "men amikal. Sijè yo enkli: BPM, tempo, ritm, " +
+    "melodi, akò, bass, aranjman chante, sampling, " +
+    "sound design, mixing, EQ, mastering, mizik " +
+    "ayisyen (Kompa, Rara, Rabòday, Twoubadou), ak " +
+    "itilizasyon AI nan pwodiksyon mizikal.";
 
-    melodi:
-      "Chwazi yon scale, kreye yon motif kout 2–4 bars epi repete li ak ti chanjman.",
+  async function getProfessorReply(question) {
+    try {
+      const response = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            contents: [
+              {
+                parts: [
+                  {
+                    text:
+                      PROFESSOR_CONTEXT +
+                      "\n\nKesyon elèv la: " +
+                      question
+                  }
+                ]
+              }
+            ]
+          })
+        }
+      );
 
-    melody:
-      "Choose a scale, create a short 2–4 bar motif, then repeat it with small variations.",
+      const data = await response.json();
 
-    konpa:
-      "Pou konpa, konsantre sou groove gita, bass, kick ak tanbou ki rete byen kole ansanm.",
-
-    kompa:
-      "Pou konpa, konsantre sou groove gita, bass, kick ak tanbou ki rete byen kole ansanm.",
-
-    rara:
-      "Rara sèvi ak vaksin, tanbou, graj, klewon ak percussion. Respekte apèl-repons ak enèji mach la.",
-
-    mix:
-      "Kòmanse ak gain staging. Balanse volume yo, retire frekans ki pa nesesè epi evite clipping.",
-
-    mastering:
-      "Mastering se dènye etap la. Verifye EQ, dinamik, peak epi export yon WAV kalite siperyè.",
-
-    master:
-      "Mastering se dènye etap la. Verifye EQ, dinamik, peak epi export yon WAV kalite siperyè.",
-
-    ai:
-      "Sèvi ak AI pou brainstorming, lyrics, chord ideas ak plan aranjman. Se ou menm ki pran desizyon kreyatif final yo."
-  };
-
-  function getProfessorReply(question) {
-    const normalizedQuestion =
-      question.toLowerCase();
-
-    for (const keyword in professorAnswers) {
-      if (normalizedQuestion.includes(keyword)) {
-        return professorAnswers[keyword];
+      if (data.error) {
+        return "Erè: " + data.error.message;
       }
-    }
 
-    return (
-      "Bon kesyon. Di m si kestyon an konsène BPM, " +
-      "ritm, melodi, konpa, rara, mixing, mastering " +
-      "oswa AI pou m ka gide w etap pa etap."
-    );
+      return data.candidates[0].content.parts[0].text;
+
+    } catch (error) {
+      return (
+        "Pa gen koneksyon kounye a. " +
+        "Eseye ankò nan yon ti moman."
+      );
+    }
   }
 
   get("askForm").addEventListener(
     "submit",
-    (event) => {
+    async (event) => {
       event.preventDefault();
 
       const question =
@@ -453,18 +460,26 @@
       userMessage.className = "user";
       userMessage.textContent = safeQuestion;
 
+      get("messages").appendChild(userMessage);
+
+      get("question").value = "";
+
       const professorMessage =
         document.createElement("div");
 
       professorMessage.className = "bot";
 
       professorMessage.textContent =
-        "🎓 " + getProfessorReply(question);
+        "🎓 Ap reflechi...";
 
-      get("messages").appendChild(userMessage);
       get("messages").appendChild(professorMessage);
 
-      get("question").value = "";
+      get("messages").scrollTop =
+        get("messages").scrollHeight;
+
+      const reply = await getProfessorReply(question);
+
+      professorMessage.textContent = "🎓 " + reply;
 
       get("messages").scrollTop =
         get("messages").scrollHeight;
