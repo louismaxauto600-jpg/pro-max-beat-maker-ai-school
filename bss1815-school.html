@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ht" translate="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#000000">
+
+  <title>BSS1815 PRO-MAX Real Estate & Insurance School</title>
+
+  <meta
+    name="description"
+    content="Aprann imobilye, asirans, lisans, kontra ak AI avèk BSS1815 PRO-MAX School."
+  >
+
+  <link rel="stylesheet" href="./style.css">
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  >
+
+  <style>
+    /* Baz koulè garanti — nwa/orange, jamè blan, menm si style.css pa chaje */
+    html, body {
+      background: radial-gradient(circle at top, #2a1000 0%, #000000 70%);
+      background-attachment: fixed;
+      color: #ffad4d;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    * { box-sizing: border-box; }
+
+    a { color: #ffad4d; }
+
+    .btn.primary {
+      background: #ff7900;
+      color: #000000;
+      border: none;
+    }
+
+    .eyebrow, h1, h2, h3 { color: #ff7900; }
+
+    .brand-logo {
+      width: 48px;
+      height: 48px;
+      object-fit: cover;
+      border: 1px solid #ff7900;
+      border-radius: 50%;
+      box-shadow: 0 0 12px rgba(255, 121, 0, 0.4);
+    }
+
+    .professor-information {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .professor-video-card {
+      width: min(390px, 100%);
+      margin-top: 8px;
+      padding: 12px;
+      border: 2px solid #ff7900;
+      border-radius: 20px;
+      background:
+        radial-gradient(
+          circle at top,
+          rgba(255, 121, 0, 0.16),
+          transparent 42%
+        ),
+        #000000;
+      box-shadow: 0 0 22px rgba(255, 121, 0, 0.4);
+    }
+
+    .professor-video-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+      color: #ff7900;
+      font-size: 0.68rem;
+      font-weight: 1000;
+      letter-spacing: 0.06em;
+    }
+
+    .professor-video {
+      width: 100%;
+      max-height: 590px;
+      display: block;
+      border: 1px solid #6d3000;
+      border-radius: 14px;
+      object-fit: contain;
+      background: #000000;
+    }
+
+    .professor-video-note {
+      margin-top: 10px;
+      color: #ffad4d;
+      text-align: center;
+      font-size: 0.63rem;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 700px) {
+      .professor-video-card { width: 100%; }
+    }
+
+    .contact-grid {
+      width: min(900px, 100%);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin: auto;
+    }
+
+    .contact-grid article {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      padding: 22px;
+      border: 1px solid #6d3000;
+      border-radius: 15px;
+      background: #070200;
+      text-align: center;
+    }
+
+    .contact-grid h3 { color: #ff7900; }
+    .contact-grid a { color: #ffad4d; text-decoration: none; }
+    .contact-grid a:hover { color: #ff7900; }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 9px;
+      margin-top: 18px;
+    }
+
+    .social-grid a {
+      min-height: 82px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 14px 8px;
+      border: 1px solid #6d3000;
+      border-radius: 10px;
+      color: #ffad4d;
+      background: #070200;
+      text-align: center;
+      text-decoration: none;
+      font-size: 0.62rem;
+      font-weight: 1000;
+      transition: 0.25s;
+    }
+
+    .social-grid a i { color: #ff7900; font-size: 1.65rem; line-height: 1; }
+
+    .truth-icon {
+      width: 29px;
+      height: 29px;
+      display: inline-grid;
+      place-items: center;
+      border: 2px solid #ff7900;
+      border-radius: 50%;
+      color: #ff7900;
+      font-size: 0.95rem;
+      font-weight: 1000;
+      line-height: 1;
+    }
+
+    .social-grid a:hover {
+      color: #000000;
+      background: #ff7900;
+      box-shadow: 0 0 25px rgba(255, 121, 0, 0.4);
+      transform: translateY(-3px);
+    }
+
+    .social-grid a:hover i,
+    .social-grid a:hover .truth-icon {
+      color: #000000;
+      border-color: #000000;
+    }
+
+    @media (max-width: 900px) {
+      .social-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 700px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      .social-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 390px) {
+      .social-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div
+    class="ticker"
+    data-ht="🎓 BSS1815 REAL ESTATE & INSURANCE SCHOOL • APRANN • LISANSYE • PWOFESYONÈL"
+    data-fr="🎓 BSS1815 REAL ESTATE & INSURANCE SCHOOL • APPRENDRE • LICENCIÉ • PROFESSIONNEL"
+    data-en="🎓 BSS1815 REAL ESTATE & INSURANCE SCHOOL • LEARN • LICENSED • PROFESSIONAL"
+  >
+    🎓 BSS1815 REAL ESTATE & INSURANCE SCHOOL • APRANN • LISANSYE • PWOFESYONÈL
+  </div>
+
+  <header>
+
+    <a class="brand" href="#home">
+      <img
+        class="brand-logo"
+        src="./bss1815-logo.png"
+        alt="BSS1815 PRO-MAX DMP"
+      >
+      <span>BSS1815</span>
+      <small>PRO-MAX SCHOOL</small>
+    </a>
+
+    <nav id="nav">
+      <a href="#home" data-ht="AKÈY" data-fr="ACCUEIL" data-en="HOME">AKÈY</a>
+      <a href="#courses" data-ht="KOU" data-fr="COURS" data-en="COURSES">KOU</a>
+      <a href="#professor">AI PROFESSOR</a>
+      <a href="#exam" data-ht="EGZAMEN" data-fr="EXAMEN" data-en="EXAM">EGZAMEN</a>
+      <a href="#certificate" data-ht="SÈTIFIKA" data-fr="CERTIFICAT" data-en="CERTIFICATE">SÈTIFIKA</a>
+      <a href="#contact" data-ht="KONTAK" data-fr="CONTACT" data-en="CONTACT">KONTAK</a>
+    </nav>
+
+    <div class="head-actions">
+      <div class="langs">
+        <button type="button" data-lang="fr">FRA</button>
+        <button type="button" data-lang="en">ENG</button>
+        <button type="button" data-lang="ht" class="active">KRE</button>
+      </div>
+
+      <button type="button" id="menu" aria-label="Menu" aria-expanded="false">☰</button>
+    </div>
+
+  </header>
+
+  <main>
+
+    <section class="hero" id="home">
+      <div class="hero-glow"></div>
+
+      <div class="hero-copy">
+        <p class="eyebrow">BSS1815 PRO-MAX DMP</p>
+
+        <h1>
+          BSS1815<br>
+          <span>REAL ESTATE</span><br>
+          & INSURANCE SCHOOL
+        </h1>
+
+        <p
+          data-ht="Soti nan premye leson ou rive nan yon karyè pwofesyonèl. Aprann lisans, kontra, finansman, asirans, etik ak zouti AI."
+          data-fr="De votre première leçon à une carrière professionnelle. Apprenez la licence, les contrats, le financement, l'assurance, l'éthique et les outils IA."
+          data-en="From your first lesson to a professional career. Learn licensing, contracts, financing, insurance, ethics and AI tools."
+        >
+          Soti nan premye leson ou rive nan yon karyè pwofesyonèl.
+          Aprann lisans, kontra, finansman, asirans, etik ak zouti AI.
+        </p>
+
+        <div class="actions">
+          <a
+            class="btn primary"
+            href="#courses"
+            data-ht="KÒMANSE APRANN"
+            data-fr="COMMENCER"
+            data-en="START LEARNING"
+          >
+            KÒMANSE APRANN
+          </a>
+        </div>
+      </div>
+
+      <div class="console">
+        <div class="screen">
+          <div class="wave"></div>
+          <strong>AI LEARNING CENTER</strong>
+          <span id="heroStatus">READY TO LEARN</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div>
+        <strong>10</strong>
+        <span data-ht="KOU" data-fr="COURS" data-en="COURSES">KOU</span>
+      </div>
+      <div>
+        <strong>3</strong>
+        <span data-ht="LANG" data-fr="LANGUES" data-en="LANGUAGES">LANG</span>
+      </div>
+      <div>
+        <strong>AI</strong>
+        <span>PROFESSOR</span>
+      </div>
+      <div>
+        <strong>100%</strong>
+        <span data-ht="PRATIK" data-fr="PRATIQUE" data-en="PRACTICAL">PRATIK</span>
+      </div>
+    </section>
+
+    <section class="section" id="courses">
+      <div class="section-head">
+        <p class="eyebrow">PROFESSIONAL LEARNING PATH</p>
+
+        <h2 data-ht="10 KOU PRENSIPAL" data-fr="10 COURS PRINCIPAUX" data-en="10 CORE COURSES">
+          10 KOU PRENSIPAL
+        </h2>
+
+        <p id="progressText">PWOGRÈ: 0 / 10</p>
+
+        <div class="progress"><i id="progressBar"></i></div>
+      </div>
+
+      <div class="course-grid" id="courseGrid"></div>
+    </section>
+
+    <section class="section professor" id="professor">
+      <div class="professor-information">
+        <div>
+          <p class="eyebrow">INTELLIGENCE ARTIFICIELLE</p>
+
+          <h2 data-ht="MANDE AI PROFESSOR" data-fr="DEMANDEZ AU PROFESSEUR IA" data-en="ASK AI PROFESSOR">
+            MANDE AI PROFESSOR
+          </h2>
+
+          <p
+            data-ht="Poze pwofesè a nenpòt kesyon sou imobilye, asirans, lisans, kontra oswa etik pwofesyonèl."
+            data-fr="Posez au professeur toute question sur l'immobilier, l'assurance, la licence, les contrats ou l'éthique professionnelle."
+            data-en="Ask the professor any question about real estate, insurance, licensing, contracts or professional ethics."
+          >
+            Poze pwofesè a nenpòt kesyon sou imobilye, asirans,
+            lisans, kontra oswa etik pwofesyonèl.
+          </p>
+        </div>
+
+        <div class="professor-video-card">
+          <div class="professor-video-label">
+            <span>🎓 BSS1815 AI PROFESSOR</span>
+            <span>OFFICIAL</span>
+          </div>
+
+          <video
+            id="professorVideo"
+            class="professor-video"
+            controls
+            playsinline
+            preload="metadata"
+            poster="./bss1815-logo.png"
+          >
+            <source src="./pro-max-ai-professor.mp4" type="video/mp4">
+            Browser ou a pa sipòte videyo MP4.
+          </video>
+
+          <p
+            class="professor-video-note"
+            data-ht="Peze Play pou koute pwofesè BSS1815 la."
+            data-fr="Appuyez sur Play pour écouter le professeur BSS1815."
+            data-en="Press Play to listen to the BSS1815 professor."
+          >
+            Peze Play pou koute pwofesè BSS1815 la.
+          </p>
+        </div>
+      </div>
+
+      <div class="chat">
+        <div class="messages" id="messages">
+          <div class="bot">
+            🎓 Bonjou! Mwen se BSS1815 AI Professor.
+            Ki sa ou vle aprann jodi a?
+          </div>
+        </div>
+
+        <form id="askForm">
+          <input id="question" autocomplete="off" placeholder="Ekri kesyon ou..." required>
+          <button class="btn primary" type="submit">ASK AI</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" id="exam">
+      <div class="section-head">
+        <p class="eyebrow">FINAL ASSESSMENT</p>
+
+        <h2 data-ht="EGZAMEN PRATIK" data-fr="EXAMEN PRATIQUE" data-en="PRACTICE EXAM">
+          EGZAMEN PRATIK
+        </h2>
+
+        <p
+          data-ht="Reponn 5 kesyon. Ou bezwen 80% pou pase."
+          data-fr="Répondez à 5 questions. Il faut 80 % pour réussir."
+          data-en="Answer 5 questions. You need 80% to pass."
+        >
+          Reponn 5 kesyon. Ou bezwen 80% pou pase.
+        </p>
+      </div>
+
+      <form class="exam-card" id="examForm"></form>
+    </section>
+
+    <section class="section" id="certificate">
+      <div class="certificate">
+        <p>BSS1815 PRO-MAX DMP</p>
+
+        <h2 data-ht="SANT SÈTIFIKA" data-fr="CENTRE DE CERTIFICATION" data-en="CERTIFICATE CENTER">
+          SANT SÈTIFIKA
+        </h2>
+
+        <p
+          data-ht="Fini 10 kou yo epi pase egzamen an pou debloke sètifika ou."
+          data-fr="Terminez les 10 cours et réussissez l'examen pour débloquer votre certificat."
+          data-en="Complete all 10 courses and pass the exam to unlock your certificate."
+        >
+          Fini 10 kou yo epi pase egzamen an pou debloke sètifika ou.
+        </p>
+
+        <input id="studentName" placeholder="Non konplè elèv la">
+
+        <button class="btn primary" id="certificateBtn" type="button">
+          GENERATE CERTIFICATE
+        </button>
+
+        <p id="certificateMessage"></p>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="section-head">
+        <p class="eyebrow">BSS1815 PRO-MAX DMP</p>
+
+        <h2 data-ht="KONTAK & REZO SOSYAL" data-fr="CONTACT & RÉSEAUX SOCIAUX" data-en="CONTACT & SOCIAL NETWORKS">
+          KONTAK & REZO SOSYAL
+        </h2>
+      </div>
+
+      <div class="contact-grid">
+        <article>
+          <h3>🇺🇸 USA</h3>
+          <a href="tel:+14076405166"><i class="fa-solid fa-phone"></i> (407) 640-5166</a>
+          <a href="tel:+15162168494"><i class="fa-solid fa-phone"></i> (516) 216-8494</a>
+          <a href="tel:+13175381150"><i class="fa-solid fa-phone"></i> (317) 538-1150</a>
+        </article>
+
+        <article>
+          <h3>🇭🇹 HAITI</h3>
+          <a href="tel:+5094254447"><i class="fa-solid fa-phone"></i> +509 42 54 4447</a>
+          <a href="tel:+50943437488"><i class="fa-solid fa-phone"></i> +509 43 43 7488</a>
+        </article>
+      </div>
+
+      <div class="social-grid">
+        <a href="https://www.facebook.com/share/1By3KvYRrM/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <i class="fa-brands fa-facebook-f"></i><span>FACEBOOK</span>
+        </a>
+        <a href="https://wa.me/50943437488" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+          <i class="fa-brands fa-whatsapp"></i><span>WHATSAPP</span>
+        </a>
+        <a href="https://www.instagram.com/lebaron072/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i><span>INSTAGRAM</span>
+        </a>
+        <a href="https://www.tiktok.com/@maximax1960" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+          <i class="fa-brands fa-tiktok"></i><span>TIKTOK</span>
+        </a>
+        <a href="https://t.me/bss1815dmp" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+          <i class="fa-brands fa-telegram"></i><span>TELEGRAM</span>
+        </a>
+        <a href="https://www.youtube.com/@BSS1815PROMAXDMP" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <i class="fa-brands fa-youtube"></i><span>YOUTUBE</span>
+        </a>
+        <a href="https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici" target="_blank" rel="noopener noreferrer" aria-label="Spotify">
+          <i class="fa-brands fa-spotify"></i><span>SPOTIFY</span>
+        </a>
+        <a href="https://www.linkedin.com/in/maximax-multi-services-075ba2314" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin-in"></i><span>LINKEDIN</span>
+        </a>
+        <a href="https://truthsocial.com/@briyant_soley_1815" target="_blank" rel="noopener noreferrer" aria-label="Truth Social">
+          <span class="truth-icon">T</span><span>TRUTH SOCIAL</span>
+        </a>
+        <a href="https://x.com/w05g2m" target="_blank" rel="noopener noreferrer" aria-label="X Twitter">
+          <i class="fa-brands fa-x-twitter"></i><span>X / TWITTER</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="modal" id="lessonModal">
+    <article>
+      <button type="button" id="closeLesson">✕</button>
+      <span id="lessonIcon"></span>
+      <h2 id="lessonTitle"></h2>
+      <div id="lessonBody"></div>
+      <button class="btn primary" id="completeLesson" type="button">✓ MARK COMPLETE</button>
+    </article>
+  </div>
+
+  <footer>
+    <strong>BSS1815 PRO-MAX REAL ESTATE & INSURANCE SCHOOL</strong>
+    <p>DEVAN DEVAN NÈT • BATI POU JODI A • PARE POU DEMEN</p>
+    <p>© <span id="year"></span> BSS1815 PRO-MAX DMP</p>
+  </footer>
+
+  <script src="./bss1815-school.js"></script>
+
+</body>
+</html>
