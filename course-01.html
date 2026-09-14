@@ -1,0 +1,1827 @@
+<!DOCTYPE html>
+<html lang="ht" translate="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#000000">
+
+  <title>Kou 1 — Beat Making Fundamentals | PRO-MAX AI School</title>
+
+  <meta
+    name="description"
+    content="Aprann fondasyon beat making avèk PRO-MAX Beat Maker AI School."
+  >
+
+  <style>
+    :root {
+      --black: #000000;
+      --black-two: #080300;
+      --panel: #100500;
+      --orange: #ff7900;
+      --apricot: #ffad4d;
+      --text: #ffd0a0;
+      --border: rgba(255, 121, 0, 0.38);
+      --strong-border: rgba(255, 121, 0, 0.78);
+      --glow:
+        0 0 18px rgba(255, 121, 0, 0.43),
+        0 0 42px rgba(255, 121, 0, 0.16);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(
+          circle at 20% 10%,
+          rgba(255, 121, 0, 0.16),
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 85% 70%,
+          rgba(255, 121, 0, 0.09),
+          transparent 38%
+        ),
+        linear-gradient(180deg, #000000, #100500, #000000);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background-image:
+        linear-gradient(
+          rgba(255, 121, 0, 0.025) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255, 121, 0, 0.025) 1px,
+          transparent 1px
+        );
+      background-size: 42px 42px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    img,
+    video {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 28px));
+      margin: auto;
+    }
+
+    .ticker {
+      padding: 9px 14px;
+      color: #000000;
+      text-align: center;
+      font-size: 0.67rem;
+      font-weight: 1000;
+      letter-spacing: 0.09em;
+      background: linear-gradient(
+        90deg,
+        #9b3b00,
+        var(--orange),
+        var(--apricot),
+        var(--orange),
+        #9b3b00
+      );
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--border);
+      background: rgba(0, 0, 0, 0.96);
+      backdrop-filter: blur(14px);
+    }
+
+    .header-inner {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .brand img {
+      width: 52px;
+      height: 52px;
+      object-fit: cover;
+      border: 2px solid var(--orange);
+      border-radius: 50%;
+      box-shadow: var(--glow);
+    }
+
+    .brand-copy strong {
+      display: block;
+      color: var(--orange);
+      font-size: 0.9rem;
+    }
+
+    .brand-copy span {
+      display: block;
+      margin-top: 4px;
+      color: var(--apricot);
+      font-size: 0.55rem;
+      font-weight: 900;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .languages {
+      display: flex;
+      gap: 4px;
+      padding: 3px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+    }
+
+    .language-btn {
+      padding: 8px 10px;
+      border: 0;
+      border-radius: 999px;
+      color: var(--apricot);
+      background: transparent;
+      font-size: 0.62rem;
+      font-weight: 1000;
+    }
+
+    .language-btn.active {
+      color: #000000;
+      background: var(--orange);
+    }
+
+    .back-btn {
+      padding: 10px 14px;
+      border: 1px solid var(--orange);
+      border-radius: 999px;
+      color: var(--orange);
+      font-size: 0.64rem;
+      font-weight: 1000;
+    }
+
+    .hero {
+      padding: 70px 0 60px;
+      text-align: center;
+    }
+
+    .course-number,
+    .eyebrow {
+      color: var(--orange);
+      font-size: 0.7rem;
+      font-weight: 1000;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      max-width: 900px;
+      margin: 17px auto 0;
+      color: var(--orange);
+      font-size: clamp(2.4rem, 8vw, 5.8rem);
+      line-height: 0.9;
+      text-transform: uppercase;
+    }
+
+    .hero-description {
+      max-width: 780px;
+      margin: 22px auto 0;
+      line-height: 1.75;
+      font-size: 1rem;
+    }
+
+    .course-meta {
+      max-width: 850px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 34px auto 0;
+    }
+
+    .course-meta div {
+      padding: 19px 10px;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      background: rgba(0, 0, 0, 0.78);
+    }
+
+    .course-meta strong {
+      display: block;
+      color: var(--orange);
+      font-size: 1.15rem;
+    }
+
+    .course-meta span {
+      display: block;
+      margin-top: 6px;
+      font-size: 0.61rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .progress-box {
+      max-width: 850px;
+      margin: 24px auto 0;
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      background: #050200;
+      text-align: left;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      color: var(--apricot);
+      font-size: 0.7rem;
+      font-weight: 1000;
+    }
+
+    .progress-track {
+      height: 13px;
+      margin-top: 11px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: #000000;
+    }
+
+    .progress-fill {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--orange), var(--apricot));
+      box-shadow: var(--glow);
+      transition: width 0.4s ease;
+    }
+
+    .section {
+      padding: 65px 0;
+      border-top: 1px solid rgba(255, 121, 0, 0.13);
+    }
+
+    .section-head {
+      max-width: 780px;
+      margin: 0 auto 35px;
+      text-align: center;
+    }
+
+    .section-head h2 {
+      margin-top: 12px;
+      color: var(--orange);
+      font-size: clamp(1.9rem, 6vw, 3.8rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+    }
+
+    .section-head p:last-child {
+      margin-top: 16px;
+      line-height: 1.7;
+    }
+
+    .objectives {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .objective {
+      padding: 23px;
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      background: linear-gradient(145deg, #000000, #100500);
+    }
+
+    .objective strong {
+      color: var(--orange);
+    }
+
+    .objective p {
+      margin-top: 9px;
+      line-height: 1.6;
+    }
+
+    .lessons {
+      display: grid;
+      gap: 17px;
+    }
+
+    .lesson {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: #050200;
+    }
+
+    .lesson.completed {
+      border-color: var(--orange);
+      box-shadow: var(--glow);
+    }
+
+    .lesson-header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 22px;
+      border: 0;
+      color: var(--text);
+      background: linear-gradient(90deg, #000000, #130600);
+      text-align: left;
+    }
+
+    .lesson-number {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      border: 1px solid var(--orange);
+      border-radius: 50%;
+      color: var(--orange);
+      font-weight: 1000;
+    }
+
+    .lesson-title {
+      flex: 1;
+    }
+
+    .lesson-title strong {
+      display: block;
+      color: var(--orange);
+      font-size: 1rem;
+    }
+
+    .lesson-title span {
+      display: block;
+      margin-top: 6px;
+      font-size: 0.73rem;
+    }
+
+    .lesson-arrow {
+      color: var(--orange);
+      font-size: 1.35rem;
+      transition: transform 0.25s;
+    }
+
+    .lesson.open .lesson-arrow {
+      transform: rotate(180deg);
+    }
+
+    .lesson-content {
+      display: none;
+      padding: 25px;
+      border-top: 1px solid var(--border);
+    }
+
+    .lesson.open .lesson-content {
+      display: block;
+    }
+
+    .lesson-content h3 {
+      margin: 23px 0 10px;
+      color: var(--orange);
+      font-size: 1.05rem;
+    }
+
+    .lesson-content h3:first-child {
+      margin-top: 0;
+    }
+
+    .lesson-content p,
+    .lesson-content li {
+      line-height: 1.75;
+    }
+
+    .lesson-content ul,
+    .lesson-content ol {
+      margin: 12px 0 0 23px;
+    }
+
+    .example-box,
+    .practice-box,
+    .tip-box {
+      margin-top: 19px;
+      padding: 18px;
+      border-radius: 14px;
+    }
+
+    .example-box {
+      border-left: 4px solid var(--apricot);
+      background: rgba(255, 173, 77, 0.08);
+    }
+
+    .practice-box {
+      border: 1px solid var(--orange);
+      background: rgba(255, 121, 0, 0.08);
+    }
+
+    .tip-box {
+      border: 1px dashed var(--apricot);
+      background: #000000;
+    }
+
+    .complete-btn,
+    .primary-btn,
+    .outline-btn {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 22px;
+      padding: 11px 19px;
+      border: 2px solid var(--orange);
+      border-radius: 999px;
+      font-size: 0.68rem;
+      font-weight: 1000;
+      text-transform: uppercase;
+    }
+
+    .complete-btn,
+    .primary-btn {
+      color: #000000;
+      background: var(--orange);
+    }
+
+    .complete-btn:disabled {
+      color: var(--apricot);
+      background: #321400;
+      cursor: default;
+    }
+
+    .outline-btn {
+      color: var(--orange);
+      background: #000000;
+    }
+
+    .professor-box {
+      display: grid;
+      grid-template-columns: 330px 1fr;
+      gap: 25px;
+      padding: 25px;
+      border: 2px solid var(--orange);
+      border-radius: 24px;
+      background:
+        radial-gradient(
+          circle at top right,
+          rgba(255, 121, 0, 0.14),
+          transparent 40%
+        ),
+        #000000;
+      box-shadow: var(--glow);
+    }
+
+    .professor-video {
+      overflow: hidden;
+      border: 1px solid var(--orange);
+      border-radius: 19px;
+      background: #000000;
+    }
+
+    .professor-video video {
+      width: 100%;
+      max-height: 520px;
+      object-fit: contain;
+      background: #000000;
+    }
+
+    .professor-copy {
+      align-self: center;
+    }
+
+    .professor-copy h2 {
+      margin-top: 10px;
+      color: var(--orange);
+      font-size: clamp(1.8rem, 5vw, 3.3rem);
+    }
+
+    .professor-copy p {
+      margin-top: 15px;
+      line-height: 1.75;
+    }
+
+    .quiz-card {
+      max-width: 880px;
+      margin: auto;
+      padding: 27px;
+      border: 1px solid var(--strong-border);
+      border-radius: 21px;
+      background: #050200;
+    }
+
+    .question-card {
+      margin-bottom: 24px;
+      padding-bottom: 23px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .question-card h3 {
+      color: var(--orange);
+      line-height: 1.45;
+    }
+
+    .answer {
+      display: block;
+      margin-top: 10px;
+      padding: 13px;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      cursor: pointer;
+    }
+
+    .answer:hover {
+      border-color: var(--orange);
+      background: rgba(255, 121, 0, 0.08);
+    }
+
+    .answer input {
+      margin-right: 9px;
+      accent-color: var(--orange);
+    }
+
+    .quiz-result {
+      margin-top: 18px;
+      padding: 17px;
+      border-radius: 13px;
+      text-align: center;
+      font-weight: 1000;
+    }
+
+    .quiz-result.success {
+      color: var(--apricot);
+      border: 1px solid var(--orange);
+      background: rgba(255, 121, 0, 0.12);
+    }
+
+    .quiz-result.error {
+      color: #ffad4d;
+      border: 1px solid #a33d00;
+      background: rgba(163, 61, 0, 0.14);
+    }
+
+    .finish-box {
+      padding: 38px 25px;
+      border: 2px solid var(--orange);
+      border-radius: 24px;
+      text-align: center;
+      background: linear-gradient(145deg, #000000, #160800);
+      box-shadow: var(--glow);
+    }
+
+    .finish-box h2 {
+      color: var(--orange);
+      font-size: clamp(1.9rem, 6vw, 3.7rem);
+    }
+
+    .finish-box p {
+      max-width: 700px;
+      margin: 15px auto 0;
+      line-height: 1.7;
+    }
+
+    .course-navigation {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    footer {
+      padding: 38px 15px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      background: #000000;
+    }
+
+    footer strong {
+      color: var(--orange);
+    }
+
+    footer p {
+      margin-top: 9px;
+      font-size: 0.72rem;
+    }
+
+    @media (max-width: 800px) {
+      .professor-box {
+        grid-template-columns: 1fr;
+      }
+
+      .professor-video {
+        max-width: 420px;
+        margin: auto;
+      }
+
+      .course-meta {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .brand-copy span {
+        display: none;
+      }
+
+      .brand img {
+        width: 44px;
+        height: 44px;
+      }
+
+      .back-btn {
+        display: none;
+      }
+
+      .language-btn {
+        padding: 7px 8px;
+      }
+
+      .objectives {
+        grid-template-columns: 1fr;
+      }
+
+      .lesson-header,
+      .lesson-content {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div
+    class="ticker"
+    data-ht="🎓 KOU 1 • FONDASYON BEAT MAKING • PRO-MAX AI SCHOOL"
+    data-fr="🎓 COURS 1 • FONDAMENTAUX DU BEAT MAKING • PRO-MAX AI SCHOOL"
+    data-en="🎓 COURSE 1 • BEAT MAKING FUNDAMENTALS • PRO-MAX AI SCHOOL"
+  >
+    🎓 KOU 1 • FONDASYON BEAT MAKING • PRO-MAX AI SCHOOL
+  </div>
+
+  <header>
+    <div class="container header-inner">
+
+      <a class="brand" href="../index.html">
+        <img
+          src="../pro-max-beat-maker-ai-school-logo.png"
+          alt="PRO-MAX Beat Maker AI School"
+        >
+
+        <div class="brand-copy">
+          <strong>PRO-MAX AI SCHOOL</strong>
+          <span>BEAT MAKER PROFESSIONAL PROGRAM</span>
+        </div>
+      </a>
+
+      <div class="header-actions">
+
+        <div class="languages">
+          <button class="language-btn" type="button" data-lang="fr">
+            FRA
+          </button>
+
+          <button class="language-btn" type="button" data-lang="en">
+            ENG
+          </button>
+
+          <button
+            class="language-btn active"
+            type="button"
+            data-lang="ht"
+          >
+            KRE
+          </button>
+        </div>
+
+        <a
+          class="back-btn"
+          href="../index.html#courses"
+          data-ht="← TOUT KOU YO"
+          data-fr="← TOUS LES COURS"
+          data-en="← ALL COURSES"
+        >
+          ← TOUT KOU YO
+        </a>
+
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="container">
+
+        <p
+          class="course-number"
+          data-ht="KOU 1 SOU 10 • NIVO DEBITAN"
+          data-fr="COURS 1 SUR 10 • NIVEAU DÉBUTANT"
+          data-en="COURSE 1 OF 10 • BEGINNER LEVEL"
+        >
+          KOU 1 SOU 10 • NIVO DEBITAN
+        </p>
+
+        <h1
+          data-ht="FONDASYON BEAT MAKING"
+          data-fr="FONDAMENTAUX DU BEAT MAKING"
+          data-en="BEAT MAKING FUNDAMENTALS"
+        >
+          FONDASYON BEAT MAKING
+        </h1>
+
+        <p
+          class="hero-description"
+          data-ht="Nan kou sa a, ou pral konprann kijan yon beat fèt, kijan yon estasyon mizik òganize, ak kijan pou kreye premye ritm ou nan PRO-MAX Beat Maker."
+          data-fr="Dans ce cours, vous comprendrez comment un beat est construit, comment une station musicale est organisée et comment créer votre premier rythme dans PRO-MAX Beat Maker."
+          data-en="In this course, you will understand how a beat is built, how a music workstation is organized, and how to create your first rhythm in PRO-MAX Beat Maker."
+        >
+          Nan kou sa a, ou pral konprann kijan yon beat fèt,
+          kijan yon estasyon mizik òganize, ak kijan pou kreye
+          premye ritm ou nan PRO-MAX Beat Maker.
+        </p>
+
+        <div class="course-meta">
+          <div>
+            <strong>5</strong>
+            <span data-ht="LESON" data-fr="LEÇONS" data-en="LESSONS">
+              LESON
+            </span>
+          </div>
+
+          <div>
+            <strong>45–60</strong>
+            <span data-ht="MINIT" data-fr="MINUTES" data-en="MINUTES">
+              MINIT
+            </span>
+          </div>
+
+          <div>
+            <strong>1</strong>
+            <span data-ht="PRATIK" data-fr="EXERCICE" data-en="PRACTICE">
+              PRATIK
+            </span>
+          </div>
+
+          <div>
+            <strong>5</strong>
+            <span data-ht="KESYON" data-fr="QUESTIONS" data-en="QUESTIONS">
+              KESYON
+            </span>
+          </div>
+        </div>
+
+        <div class="progress-box">
+          <div class="progress-label">
+            <span
+              data-ht="PWOGRÈ KOU A"
+              data-fr="PROGRESSION DU COURS"
+              data-en="COURSE PROGRESS"
+            >
+              PWOGRÈ KOU A
+            </span>
+
+            <span id="progressText">0 / 5</span>
+          </div>
+
+          <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+
+        <div class="section-head">
+          <p class="eyebrow">LEARNING OBJECTIVES</p>
+
+          <h2
+            data-ht="SA OU PRAL APRANN"
+            data-fr="CE QUE VOUS ALLEZ APPRENDRE"
+            data-en="WHAT YOU WILL LEARN"
+          >
+            SA OU PRAL APRANN
+          </h2>
+        </div>
+
+        <div class="objectives">
+
+          <article class="objective">
+            <strong>01 — BEAT</strong>
+            <p
+              data-ht="Konprann diferans ant beat, ritm, tempo, mezi ak mizik konplè."
+              data-fr="Comprendre la différence entre beat, rythme, tempo, mesure et chanson complète."
+              data-en="Understand the difference between a beat, rhythm, tempo, bar and complete song."
+            >
+              Konprann diferans ant beat, ritm, tempo, mezi ak mizik konplè.
+            </p>
+          </article>
+
+          <article class="objective">
+            <strong>02 — WORKSTATION</strong>
+            <p
+              data-ht="Idantifye sequencer, pad, track, mixer, timeline ak kontwòl prensipal yo."
+              data-fr="Identifier le séquenceur, les pads, les pistes, le mixeur, la timeline et les contrôles principaux."
+              data-en="Identify the sequencer, pads, tracks, mixer, timeline and main controls."
+            >
+              Idantifye sequencer, pad, track, mixer, timeline ak kontwòl yo.
+            </p>
+          </article>
+
+          <article class="objective">
+            <strong>03 — DRUMS</strong>
+            <p
+              data-ht="Konprann travay kick, snare, clap ak hi-hat nan yon ritm."
+              data-fr="Comprendre le rôle du kick, de la snare, du clap et du hi-hat dans un rythme."
+              data-en="Understand the role of kick, snare, clap and hi-hat in a rhythm."
+            >
+              Konprann travay kick, snare, clap ak hi-hat nan yon ritm.
+            </p>
+          </article>
+
+          <article class="objective">
+            <strong>04 — FIRST PROJECT</strong>
+            <p
+              data-ht="Kreye, teste, korije epi sove premye pwojè beat ou."
+              data-fr="Créer, tester, corriger et sauvegarder votre premier projet de beat."
+              data-en="Create, test, correct and save your first beat project."
+            >
+              Kreye, teste, korije epi sove premye pwojè beat ou.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="lessons">
+      <div class="container">
+
+        <div class="section-head">
+          <p class="eyebrow">COMPLETE TRAINING</p>
+
+          <h2
+            data-ht="5 VRÈ LESON"
+            data-fr="5 VRAIES LEÇONS"
+            data-en="5 COMPLETE LESSONS"
+          >
+            5 VRÈ LESON
+          </h2>
+
+          <p
+            data-ht="Louvri chak leson, li eksplikasyon yo, fè pratik la epi make leson an fini."
+            data-fr="Ouvrez chaque leçon, lisez les explications, faites la pratique et marquez la leçon comme terminée."
+            data-en="Open every lesson, study the explanations, complete the practice and mark the lesson complete."
+          >
+            Louvri chak leson, li eksplikasyon yo, fè pratik la
+            epi make leson an fini.
+          </p>
+        </div>
+
+        <div class="lessons">
+
+          <article class="lesson" data-lesson="1">
+            <button class="lesson-header" type="button">
+              <span class="lesson-number">01</span>
+
+              <span class="lesson-title">
+                <strong
+                  data-ht="KISA YON BEAT YE?"
+                  data-fr="QU’EST-CE QU’UN BEAT ?"
+                  data-en="WHAT IS A BEAT?"
+                >
+                  KISA YON BEAT YE?
+                </strong>
+
+                <span
+                  data-ht="Aprann eleman debaz ki konstwi yon beat."
+                  data-fr="Apprenez les éléments fondamentaux qui construisent un beat."
+                  data-en="Learn the basic elements used to build a beat."
+                >
+                  Aprann eleman debaz ki konstwi yon beat.
+                </span>
+              </span>
+
+              <span class="lesson-arrow">⌄</span>
+            </button>
+
+            <div class="lesson-content">
+
+              <h3 data-ht="DEFINISYON" data-fr="DÉFINITION" data-en="DEFINITION">
+                DEFINISYON
+              </h3>
+
+              <p
+                data-ht="Yon beat se fondasyon ritmik ak mizikal yon chante. Li ka genyen tanbou, pèkisyon, bas, akò, melodi, efè ak diferan son ki repete selon yon estrikti."
+                data-fr="Un beat est la fondation rythmique et musicale d’une chanson. Il peut contenir des batteries, des percussions, une basse, des accords, une mélodie, des effets et différents sons organisés dans une structure."
+                data-en="A beat is the rhythmic and musical foundation of a song. It can contain drums, percussion, bass, chords, melody, effects and different sounds organized into a structure."
+              >
+                Yon beat se fondasyon ritmik ak mizikal yon chante.
+                Li ka genyen tanbou, pèkisyon, bas, akò, melodi,
+                efè ak diferan son ki repete selon yon estrikti.
+              </p>
+
+              <h3
+                data-ht="ELEMAN PRENSIPAL YO"
+                data-fr="ÉLÉMENTS PRINCIPAUX"
+                data-en="CORE ELEMENTS"
+              >
+                ELEMAN PRENSIPAL YO
+              </h3>
+
+              <ul>
+                <li data-ht="Kick: bay ritm nan fòs ak pwa." data-fr="Kick : donne de la force et du poids au rythme." data-en="Kick: gives power and weight to the rhythm.">
+                  Kick: bay ritm nan fòs ak pwa.
+                </li>
+
+                <li data-ht="Snare oswa clap: make aksan prensipal ritm nan." data-fr="Snare ou clap : marque les accents principaux du rythme." data-en="Snare or clap: marks the main rhythmic accents.">
+                  Snare oswa clap: make aksan prensipal ritm nan.
+                </li>
+
+                <li data-ht="Hi-hat: ajoute mouvman ak vitès." data-fr="Hi-hat : ajoute du mouvement et de la vitesse." data-en="Hi-hat: adds motion and speed.">
+                  Hi-hat: ajoute mouvman ak vitès.
+                </li>
+
+                <li data-ht="Bass: konekte ritm ak amoni." data-fr="Basse : relie le rythme à l’harmonie." data-en="Bass: connects rhythm with harmony.">
+                  Bass: konekte ritm ak amoni.
+                </li>
+
+                <li data-ht="Melodi ak akò: bay beat la emosyon ak idantite." data-fr="Mélodie et accords : donnent au beat son émotion et son identité." data-en="Melody and chords: give the beat emotion and identity.">
+                  Melodi ak akò: bay beat la emosyon ak idantite.
+                </li>
+              </ul>
+
+              <div class="example-box">
+                <strong>EGZANP:</strong>
+                <p
+                  data-ht="Lè kick la frape sou premye tan an, snare la sou dezyèm ak katriyèm tan yo, epi hi-hat la kontinye ant yo, eleman sa yo ansanm fòme yon groove."
+                  data-fr="Lorsque le kick frappe sur le premier temps, la snare sur les deuxième et quatrième temps et le hi-hat continue entre eux, ces éléments forment ensemble un groove."
+                  data-en="When the kick hits on beat one, the snare hits on beats two and four, and the hi-hat continues between them, these elements form a groove."
+                >
+                  Lè kick la frape sou premye tan an, snare la sou
+                  dezyèm ak katriyèm tan yo, epi hi-hat la kontinye
+                  ant yo, eleman sa yo ansanm fòme yon groove.
+                </p>
+              </div>
+
+              <button class="complete-btn" type="button">
+                ✓ MAKE LESON 1 FINI
+              </button>
+            </div>
+          </article>
+
+          <article class="lesson" data-lesson="2">
+            <button class="lesson-header" type="button">
+              <span class="lesson-number">02</span>
+
+              <span class="lesson-title">
+                <strong
+                  data-ht="KONPRANN BPM AK TEMPO"
+                  data-fr="COMPRENDRE LE BPM ET LE TEMPO"
+                  data-en="UNDERSTANDING BPM AND TEMPO"
+                >
+                  KONPRANN BPM AK TEMPO
+                </strong>
+
+                <span
+                  data-ht="Aprann kijan vitès chanje santiman mizik la."
+                  data-fr="Apprenez comment la vitesse change la sensation de la musique."
+                  data-en="Learn how speed changes the feeling of music."
+                >
+                  Aprann kijan vitès chanje santiman mizik la.
+                </span>
+              </span>
+
+              <span class="lesson-arrow">⌄</span>
+            </button>
+
+            <div class="lesson-content">
+
+              <h3>BPM — BEATS PER MINUTE</h3>
+
+              <p
+                data-ht="BPM vle di kantite batman ki pase nan yon minit. Yon BPM ki ba fè mizik la santi li pi dous oswa pi lou. Yon BPM ki wo fè li santi li pi rapid ak pi enèjik."
+                data-fr="BPM signifie le nombre de battements par minute. Un BPM faible produit souvent une sensation plus douce ou plus lourde. Un BPM élevé crée davantage de vitesse et d’énergie."
+                data-en="BPM means beats per minute. A lower BPM often feels softer or heavier. A higher BPM creates more speed and energy."
+              >
+                BPM vle di kantite batman ki pase nan yon minit.
+                Yon BPM ki ba fè mizik la santi li pi dous oswa pi lou.
+                Yon BPM ki wo fè li santi li pi rapid ak pi enèjik.
+              </p>
+
+              <h3
+                data-ht="KÈK REFERANS"
+                data-fr="QUELQUES REPÈRES"
+                data-en="USEFUL REFERENCES"
+              >
+                KÈK REFERANS
+              </h3>
+
+              <ul>
+                <li>60–80 BPM: slow, ballad, chill.</li>
+                <li>80–105 BPM: hip-hop, reggae, kèk konpa.</li>
+                <li>105–130 BPM: dance, rabòday, mizik enèjik.</li>
+                <li>130 BPM oswa plis: mizik trè rapid.</li>
+              </ul>
+
+              <div class="tip-box">
+                <strong>PRO-MAX TIP:</strong>
+                <p
+                  data-ht="Pa chwazi BPM sèlman ak je ou. Peze Play, koute groove la epi ajiste li jiskaske mouvman an santi li natirèl."
+                  data-fr="Ne choisissez pas le BPM uniquement avec vos yeux. Appuyez sur Play, écoutez le groove et ajustez-le jusqu’à ce que le mouvement soit naturel."
+                  data-en="Do not choose BPM only by looking at the number. Press Play, listen to the groove and adjust it until the movement feels natural."
+                >
+                  Pa chwazi BPM sèlman ak je ou. Peze Play,
+                  koute groove la epi ajiste li jiskaske mouvman an
+                  santi li natirèl.
+                </p>
+              </div>
+
+              <button class="complete-btn" type="button">
+                ✓ MAKE LESON 2 FINI
+              </button>
+            </div>
+          </article>
+
+          <article class="lesson" data-lesson="3">
+            <button class="lesson-header" type="button">
+              <span class="lesson-number">03</span>
+
+              <span class="lesson-title">
+                <strong
+                  data-ht="KONNEN ESTIDYO DIJITAL LA"
+                  data-fr="DÉCOUVRIR LE STUDIO NUMÉRIQUE"
+                  data-en="UNDERSTANDING THE DIGITAL STUDIO"
+                >
+                  KONNEN ESTIDYO DIJITAL LA
+                </strong>
+
+                <span
+                  data-ht="Sequencer, track, pad, mixer ak timeline."
+                  data-fr="Séquenceur, piste, pad, mixeur et timeline."
+                  data-en="Sequencer, track, pad, mixer and timeline."
+                >
+                  Sequencer, track, pad, mixer ak timeline.
+                </span>
+              </span>
+
+              <span class="lesson-arrow">⌄</span>
+            </button>
+
+            <div class="lesson-content">
+
+              <h3
+                data-ht="ZOUTI PRENSIPAL YO"
+                data-fr="OUTILS PRINCIPAUX"
+                data-en="MAIN TOOLS"
+              >
+                ZOUTI PRENSIPAL YO
+              </h3>
+
+              <ol>
+                <li data-ht="Sequencer la mete son yo nan yon lòd ritmik." data-fr="Le séquenceur place les sons dans un ordre rythmique." data-en="The sequencer places sounds in a rhythmic order.">
+                  Sequencer la mete son yo nan yon lòd ritmik.
+                </li>
+
+                <li data-ht="Track la kenbe yon enstriman oswa yon gwoup son." data-fr="La piste contient un instrument ou un groupe de sons." data-en="A track contains an instrument or group of sounds.">
+                  Track la kenbe yon enstriman oswa yon gwoup son.
+                </li>
+
+                <li data-ht="Pad yo pèmèt ou jwe son ak dwèt ou." data-fr="Les pads permettent de jouer les sons avec vos doigts." data-en="Pads let you play sounds with your fingers.">
+                  Pad yo pèmèt ou jwe son ak dwèt ou.
+                </li>
+
+                <li data-ht="Timeline lan montre ki kote chak pati mizik la kòmanse ak fini." data-fr="La timeline montre où chaque partie de la musique commence et se termine." data-en="The timeline shows where each section starts and ends.">
+                  Timeline lan montre ki kote chak pati mizik la kòmanse ak fini.
+                </li>
+
+                <li data-ht="Mixer la kontwole volim, balans ak efè chak track." data-fr="Le mixeur contrôle le volume, l’équilibre et les effets de chaque piste." data-en="The mixer controls volume, balance and effects for every track.">
+                  Mixer la kontwole volim, balans ak efè chak track.
+                </li>
+              </ol>
+
+              <div class="practice-box">
+                <strong>🎛️ MINI PRATIK:</strong>
+                <p
+                  data-ht="Ouvri PRO-MAX Beat Maker. Chèche bouton Play, BPM, sequencer, mixer ak pads yo. Pa bezwen kreye anyen ankò; objektif la se konnen kote zouti yo ye."
+                  data-fr="Ouvrez PRO-MAX Beat Maker. Trouvez les boutons Play, BPM, le séquenceur, le mixeur et les pads. Vous n’avez pas encore besoin de créer; l’objectif est de localiser les outils."
+                  data-en="Open PRO-MAX Beat Maker. Find Play, BPM, the sequencer, mixer and pads. You do not need to create yet; the goal is to locate the tools."
+                >
+                  Ouvri PRO-MAX Beat Maker. Chèche bouton Play,
+                  BPM, sequencer, mixer ak pads yo. Objektif la se
+                  konnen kote zouti yo ye.
+                </p>
+
+                <a class="outline-btn" href="../../index.html" target="_blank">
+                  🎛️ OUVRI BEAT MAKER
+                </a>
+              </div>
+
+              <button class="complete-btn" type="button">
+                ✓ MAKE LESON 3 FINI
+              </button>
+            </div>
+          </article>
+
+          <article class="lesson" data-lesson="4">
+            <button class="lesson-header" type="button">
+              <span class="lesson-number">04</span>
+
+              <span class="lesson-title">
+                <strong
+                  data-ht="KREYE PREMYE DRUM PATTERN OU"
+                  data-fr="CRÉER VOTRE PREMIER DRUM PATTERN"
+                  data-en="CREATE YOUR FIRST DRUM PATTERN"
+                >
+                  KREYE PREMYE DRUM PATTERN OU
+                </strong>
+
+                <span
+                  data-ht="Konbine kick, snare ak hi-hat."
+                  data-fr="Combinez kick, snare et hi-hat."
+                  data-en="Combine kick, snare and hi-hat."
+                >
+                  Konbine kick, snare ak hi-hat.
+                </span>
+              </span>
+
+              <span class="lesson-arrow">⌄</span>
+            </button>
+
+            <div class="lesson-content">
+
+              <h3
+                data-ht="MODÈL 16 ETAP"
+                data-fr="MODÈLE DE 16 PAS"
+                data-en="16-STEP PATTERN"
+              >
+                MODÈL 16 ETAP
+              </h3>
+
+              <p
+                data-ht="Anpil sequencer divize yon mezi an 16 ti etap. Chak kat etap reprezante yon gwo tan. Ou aktive kare yo pou deside ki moman yon son dwe jwe."
+                data-fr="De nombreux séquenceurs divisent une mesure en 16 pas. Chaque groupe de quatre pas représente un temps principal. Activez les cases pour choisir quand un son doit jouer."
+                data-en="Many sequencers divide one bar into 16 steps. Each group of four steps represents one main beat. Activate steps to choose when a sound plays."
+              >
+                Anpil sequencer divize yon mezi an 16 ti etap.
+                Chak kat etap reprezante yon gwo tan. Ou aktive
+                kare yo pou deside ki moman yon son dwe jwe.
+              </p>
+
+              <h3
+                data-ht="PREMYE PATTERN LAN"
+                data-fr="PREMIER PATTERN"
+                data-en="FIRST PATTERN"
+              >
+                PREMYE PATTERN LAN
+              </h3>
+
+              <ul>
+                <li>Kick: etap 1 ak 9.</li>
+                <li>Snare/Clap: etap 5 ak 13.</li>
+                <li>Hi-hat: etap 1, 3, 5, 7, 9, 11, 13, 15.</li>
+              </ul>
+
+              <div class="example-box">
+                <strong
+                  data-ht="KOUTE AK KORIJE:"
+                  data-fr="ÉCOUTEZ ET CORRIGEZ :"
+                  data-en="LISTEN AND CORRECT:"
+                >
+                  KOUTE AK KORIJE:
+                </strong>
+
+                <p
+                  data-ht="Peze Play plizyè fwa. Si ritm nan twò vid, ajoute yon son. Si li twò chaje, retire kèk etap. Yon bon beat bezwen espas tou."
+                  data-fr="Appuyez plusieurs fois sur Play. Si le rythme est trop vide, ajoutez un son. S’il est trop chargé, retirez quelques pas. Un bon beat a aussi besoin d’espace."
+                  data-en="Press Play several times. If the rhythm feels empty, add a sound. If it feels crowded, remove some steps. A good beat also needs space."
+                >
+                  Peze Play plizyè fwa. Si ritm nan twò vid,
+                  ajoute yon son. Si li twò chaje, retire kèk etap.
+                  Yon bon beat bezwen espas tou.
+                </p>
+              </div>
+
+              <button class="complete-btn" type="button">
+                ✓ MAKE LESON 4 FINI
+              </button>
+            </div>
+          </article>
+
+          <article class="lesson" data-lesson="5">
+            <button class="lesson-header" type="button">
+              <span class="lesson-number">05</span>
+
+              <span class="lesson-title">
+                <strong
+                  data-ht="PWOJÈ FINAL KOU 1"
+                  data-fr="PROJET FINAL DU COURS 1"
+                  data-en="COURSE 1 FINAL PROJECT"
+                >
+                  PWOJÈ FINAL KOU 1
+                </strong>
+
+                <span
+                  data-ht="Kreye epi sove premye beat ou."
+                  data-fr="Créez et sauvegardez votre premier beat."
+                  data-en="Create and save your first beat."
+                >
+                  Kreye epi sove premye beat ou.
+                </span>
+              </span>
+
+              <span class="lesson-arrow">⌄</span>
+            </button>
+
+            <div class="lesson-content">
+
+              <h3
+                data-ht="MISYON OU"
+                data-fr="VOTRE MISSION"
+                data-en="YOUR MISSION"
+              >
+                MISYON OU
+              </h3>
+
+              <ol>
+                <li data-ht="Ouvri PRO-MAX Beat Maker." data-fr="Ouvrez PRO-MAX Beat Maker." data-en="Open PRO-MAX Beat Maker.">
+                  Ouvri PRO-MAX Beat Maker.
+                </li>
+
+                <li data-ht="Chwazi yon tempo ant 80 ak 110 BPM." data-fr="Choisissez un tempo entre 80 et 110 BPM." data-en="Choose a tempo between 80 and 110 BPM.">
+                  Chwazi yon tempo ant 80 ak 110 BPM.
+                </li>
+
+                <li data-ht="Kreye yon pattern avèk kick, snare ak hi-hat." data-fr="Créez un pattern avec kick, snare et hi-hat." data-en="Create a pattern with kick, snare and hi-hat.">
+                  Kreye yon pattern avèk kick, snare ak hi-hat.
+                </li>
+
+                <li data-ht="Koute li omwen twa fwa epi fè koreksyon." data-fr="Écoutez-le au moins trois fois et apportez des corrections." data-en="Listen at least three times and make corrections.">
+                  Koute li omwen twa fwa epi fè koreksyon.
+                </li>
+
+                <li data-ht="Bay pwojè a yon non epi sove li." data-fr="Donnez un nom au projet et sauvegardez-le." data-en="Name the project and save it.">
+                  Bay pwojè a yon non epi sove li.
+                </li>
+              </ol>
+
+              <div class="practice-box">
+                <strong
+                  data-ht="NON PWOJÈ SIJERE:"
+                  data-fr="NOM DE PROJET SUGGÉRÉ :"
+                  data-en="SUGGESTED PROJECT NAME:"
+                >
+                  NON PWOJÈ SIJERE:
+                </strong>
+
+                <p>Premye Beat Mwen — [Non Ou]</p>
+
+                <label>
+                  <input id="projectCheck" type="checkbox">
+                  <span
+                    data-ht="Mwen kreye, koute epi sove premye beat mwen."
+                    data-fr="J’ai créé, écouté et sauvegardé mon premier beat."
+                    data-en="I created, listened to and saved my first beat."
+                  >
+                    Mwen kreye, koute epi sove premye beat mwen.
+                  </span>
+                </label>
+              </div>
+
+              <button class="complete-btn" type="button" disabled>
+                ✓ MAKE LESON 5 FINI
+              </button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+
+        <div class="professor-box">
+
+          <div class="professor-video">
+            <video controls playsinline preload="metadata">
+              <source src="../pro-max-ai-professor.mp4" type="video/mp4">
+              Browser ou a pa sipòte videyo MP4.
+            </video>
+          </div>
+
+          <div class="professor-copy">
+            <p class="eyebrow">PRO-MAX AI PROFESSOR</p>
+
+            <h2
+              data-ht="KONSÈY PWOFESÈ A"
+              data-fr="CONSEIL DU PROFESSEUR"
+              data-en="PROFESSOR’S ADVICE"
+            >
+              KONSÈY PWOFESÈ A
+            </h2>
+
+            <p
+              data-ht="Pa chèche fè yon beat konplike nan premye jou a. Kòmanse avèk twa son, fè yo mache byen ansanm, epi ajoute lòt eleman piti piti. Bon jan kalite pi enpòtan pase kantite son."
+              data-fr="N’essayez pas de créer un beat compliqué dès le premier jour. Commencez avec trois sons, faites-les fonctionner ensemble, puis ajoutez progressivement d’autres éléments. La qualité est plus importante que le nombre de sons."
+              data-en="Do not try to make a complicated beat on your first day. Start with three sounds, make them work together, then gradually add more elements. Quality matters more than the number of sounds."
+            >
+              Pa chèche fè yon beat konplike nan premye jou a.
+              Kòmanse avèk twa son, fè yo mache byen ansanm,
+              epi ajoute lòt eleman piti piti.
+            </p>
+
+            <a class="primary-btn" href="../../index.html" target="_blank">
+              🎛️ PRATIKE NAN BEAT MAKER
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="quiz">
+      <div class="container">
+
+        <div class="section-head">
+          <p class="eyebrow">KNOWLEDGE CHECK</p>
+
+          <h2
+            data-ht="TI EGZAMEN KOU 1"
+            data-fr="QUIZ DU COURS 1"
+            data-en="COURSE 1 QUIZ"
+          >
+            TI EGZAMEN KOU 1
+          </h2>
+
+          <p
+            data-ht="Ou bezwen omwen 4 bon repons sou 5 pou pase."
+            data-fr="Vous devez obtenir au moins 4 bonnes réponses sur 5."
+            data-en="You need at least 4 correct answers out of 5 to pass."
+          >
+            Ou bezwen omwen 4 bon repons sou 5 pou pase.
+          </p>
+        </div>
+
+        <form class="quiz-card" id="quizForm">
+
+          <div class="question-card">
+            <h3>1. Kisa BPM mezire?</h3>
+
+            <label class="answer">
+              <input type="radio" name="q1" value="a">
+              Kantite enstriman
+            </label>
+
+            <label class="answer">
+              <input type="radio" name="q1" value="b">
+              Kantite batman pa minit
+            </label>
+
+            <label class="answer">
+              <input type="radio" name="q1" value="c">
+              Volim mizik la
+            </label>
+          </div>
+
+          <div class="question-card">
+            <h3>2. Ki son ki bay beat la fòs ak pwa?</h3>
+
+            <label class="answer">
+              <input type="radio" name="q2" value="a">
+              Kick
+            </label>
+
+            <label class="answer">
+              <input type="radio" name="q2" value="b">
+              Reverb
+            </label>
+
+            <label class="answer">
+              <input type="radio" name="q2" value="c">
+              Piano
+            </label>
+          </div>
+
+          <div class="question-card">
+            <h3>3. Ki zouti ki òganize son yo nan yon lòd ritmik?</h3>
+
+            <label class="answer">
+              <input type="radio" name="q3" value="a">
+              Mikwofòn
+            </label>
+
+            <label class="answer">
+              <input type="radio" name="q3" value="b">
+              Sequencer
+            </label>
+
+            <label class="answer">
+              <input type="radio" name="q3" value="c">
+              Speaker
+            </label>
+          </div>
+
+          <div class="question-card">
+            <h3>4. Ki travay mixer la fè?</h3>
+
+            <label class="answer">
+              <input type="radio" name="q4" value="a">
+              Kontwole volim, balans ak efè
+            </label>
+
+            <label class="answer">
+              <input type="radio" name="q4" value="b">
+              Ekri pawòl chante
+            </label>
+
+            <label class="answer">
+              <input type="radio" name="q4" value="c">
+              Chanje non pwojè a
+            </label>
+          </div>
+
+          <div class="question-card">
+            <h3>5. Kisa ou dwe fè si beat la twò chaje?</h3>
+
+            <label class="answer">
+              <input type="radio" name="q5" value="a">
+              Ajoute plis son toujou
+            </label>
+
+            <label class="answer">
+              <input type="radio" name="q5" value="b">
+              Ogmante tout volim yo
+            </label>
+
+            <label class="answer">
+              <input type="radio" name="q5" value="c">
+              Retire kèk son oswa kèk etap
+            </label>
+          </div>
+
+          <button class="primary-btn" type="submit">
+            ✅ VERIFYE REPONS YO
+          </button>
+
+          <div id="quizResult"></div>
+        </form>
+
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+
+        <div class="finish-box">
+          <h2
+            data-ht="FINI KOU 1"
+            data-fr="TERMINER LE COURS 1"
+            data-en="COMPLETE COURSE 1"
+          >
+            FINI KOU 1
+          </h2>
+
+          <p
+            data-ht="Pou debloke pwochen kou a, fini 5 leson yo epi pase ti egzamen an avèk omwen 80%."
+            data-fr="Pour débloquer le cours suivant, terminez les 5 leçons et réussissez le quiz avec au moins 80 %."
+            data-en="To unlock the next course, finish all 5 lessons and pass the quiz with at least 80%."
+          >
+            Pou debloke pwochen kou a, fini 5 leson yo epi pase
+            ti egzamen an avèk omwen 80%.
+          </p>
+
+          <div class="course-navigation">
+            <a class="outline-btn" href="../index.html#courses">
+              ← TOUT KOU YO
+            </a>
+
+            <a
+              class="primary-btn"
+              id="nextCourse"
+              href="./course-02.html"
+              hidden
+            >
+              KOU 2: BPM & RHYTHM →
+            </a>
+          </div>
+
+          <p id="finishMessage"></p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <strong>PRO-MAX BEAT MAKER AI SCHOOL</strong>
+    <p>DEVAN DEVAN NÈT • BATI POU JODI A • PARE POU DEMEN</p>
+    <p>© <span id="year"></span> BSS1815 PRO-MAX DMP</p>
+  </footer>
+
+  <script>
+    (function () {
+      "use strict";
+
+      var storageKey = "promaxCourse01";
+      var state = {
+        completedLessons: [],
+        quizPassed: false,
+        language: "ht"
+      };
+
+      try {
+        var storedState = JSON.parse(localStorage.getItem(storageKey));
+
+        if (storedState) {
+          state.completedLessons =
+            Array.isArray(storedState.completedLessons)
+              ? storedState.completedLessons
+              : [];
+
+          state.quizPassed = storedState.quizPassed === true;
+        }
+
+        state.language =
+          localStorage.getItem("promaxSchoolLanguage") || "ht";
+      } catch (error) {}
+
+      function saveState() {
+        try {
+          localStorage.setItem(
+            storageKey,
+            JSON.stringify({
+              completedLessons: state.completedLessons,
+              quizPassed: state.quizPassed
+            })
+          );
+
+          localStorage.setItem(
+            "promaxSchoolLanguage",
+            state.language
+          );
+        } catch (error) {}
+      }
+
+      var languageButtons =
+        document.querySelectorAll(".language-btn");
+
+      function applyLanguage(language) {
+        if (["ht", "fr", "en"].indexOf(language) === -1) {
+          language = "ht";
+        }
+
+        state.language = language;
+        document.documentElement.lang = language;
+
+        document
+          .querySelectorAll("[data-ht][data-fr][data-en]")
+          .forEach(function (element) {
+            var translation =
+              element.getAttribute("data-" + language);
+
+            if (translation !== null) {
+              element.textContent = translation;
+            }
+          });
+
+        languageButtons.forEach(function (button) {
+          button.classList.toggle(
+            "active",
+            button.getAttribute("data-lang") === language
+          );
+        });
+
+        saveState();
+      }
+
+      languageButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          applyLanguage(button.getAttribute("data-lang"));
+        });
+      });
+
+      applyLanguage(state.language);
+
+      var lessons = document.querySelectorAll(".lesson");
+      var progressFill = document.getElementById("progressFill");
+      var progressText = document.getElementById("progressText");
+      var nextCourse = document.getElementById("nextCourse");
+      var finishMessage = document.getElementById("finishMessage");
+
+      function updateProgress() {
+        var completed = state.completedLessons.length;
+        var percentage = Math.round((completed / 5) * 100);
+
+        progressFill.style.width = percentage + "%";
+        progressText.textContent = completed + " / 5";
+
+        lessons.forEach(function (lesson) {
+          var lessonNumber =
+            Number(lesson.getAttribute("data-lesson"));
+
+          var completeButton =
+            lesson.querySelector(".complete-btn");
+
+          var isComplete =
+            state.completedLessons.indexOf(lessonNumber) !== -1;
+
+          lesson.classList.toggle("completed", isComplete);
+
+          if (completeButton && isComplete) {
+            completeButton.textContent = "✓ LESON FINI";
+            completeButton.disabled = true;
+          }
+        });
+
+        var coursePassed =
+          completed === 5 && state.quizPassed;
+
+        nextCourse.hidden = !coursePassed;
+
+        if (coursePassed) {
+          finishMessage.textContent =
+            "🏆 FELISITASYON! OU FINI KOU 1. KOU 2 DEBLOKE.";
+
+          try {
+            localStorage.setItem(
+              "promaxCompletedCourse01",
+              "true"
+            );
+          } catch (error) {}
+        } else {
+          finishMessage.textContent =
+            "Pwogrè: " + completed +
+            "/5 leson • Egzamen: " +
+            (state.quizPassed ? "PASE" : "POKO PASE");
+        }
+
+        saveState();
+      }
+
+      lessons.forEach(function (lesson) {
+        var header = lesson.querySelector(".lesson-header");
+        var completeButton =
+          lesson.querySelector(".complete-btn");
+
+        var lessonNumber =
+          Number(lesson.getAttribute("data-lesson"));
+
+        header.addEventListener("click", function () {
+          lesson.classList.toggle("open");
+        });
+
+        if (completeButton) {
+          completeButton.addEventListener("click", function () {
+            if (
+              lessonNumber === 5 &&
+              !document.getElementById("projectCheck").checked
+            ) {
+              alert(
+                "Tanpri fè pwojè pratik la epi tcheke bwat konfimasyon an."
+              );
+              return;
+            }
+
+            if (
+              state.completedLessons.indexOf(lessonNumber) === -1
+            ) {
+              state.completedLessons.push(lessonNumber);
+              state.completedLessons.sort(function (a, b) {
+                return a - b;
+              });
+            }
+
+            updateProgress();
+          });
+        }
+      });
+
+      var projectCheck =
+        document.getElementById("projectCheck");
+
+      var lessonFiveButton =
+        document
+          .querySelector('[data-lesson="5"]')
+          .querySelector(".complete-btn");
+
+      projectCheck.addEventListener("change", function () {
+        var alreadyComplete =
+          state.completedLessons.indexOf(5) !== -1;
+
+        lessonFiveButton.disabled =
+          alreadyComplete || !projectCheck.checked;
+      });
+
+      var quizForm = document.getElementById("quizForm");
+      var quizResult = document.getElementById("quizResult");
+
+      quizForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        var answers = {
+          q1: "b",
+          q2: "a",
+          q3: "b",
+          q4: "a",
+          q5: "c"
+        };
+
+        var score = 0;
+        var missing = false;
+
+        Object.keys(answers).forEach(function (question) {
+          var selected = quizForm.querySelector(
+            'input[name="' + question + '"]:checked'
+          );
+
+          if (!selected) {
+            missing = true;
+            return;
+          }
+
+          if (selected.value === answers[question]) {
+            score += 1;
+          }
+        });
+
+        if (missing) {
+          quizResult.className = "quiz-result error";
+          quizResult.textContent =
+            "⚠️ Tanpri reponn tout 5 kesyon yo.";
+          return;
+        }
+
+        var percentage = score * 20;
+
+        if (score >= 4) {
+          state.quizPassed = true;
+          quizResult.className = "quiz-result success";
+          quizResult.textContent =
+            "🏆 OU PASE! NÒT OU: " + percentage + "%";
+        } else {
+          state.quizPassed = false;
+          quizResult.className = "quiz-result error";
+          quizResult.textContent =
+            "Ou jwenn " + percentage +
+            "%. Revize leson yo epi eseye ankò.";
+        }
+
+        updateProgress();
+      });
+
+      document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+      updateProgress();
+    })();
+  </script>
+
+</body>
+</html>
