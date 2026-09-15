@@ -200,6 +200,69 @@
       transition: background-color 9999s ease-in-out 0s;
     }
 
+    .hero-intro-video {
+      width: 100%;
+      max-height: 320px;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 2px solid #ff7900;
+      box-shadow: 0 0 22px rgba(255, 121, 0, 0.4);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .disc-pair {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      margin: 18px 0;
+    }
+
+    .disc {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at center, #000 0%, #000 8%, #ff9500 9%, #ff7900 40%, #3a1a00 60%, #000 62%, #000 100%);
+      border: 2px solid #ff7900;
+      box-shadow:
+        0 0 20px rgba(255, 121, 0, 0.5),
+        inset 0 0 15px rgba(0, 0, 0, 0.8);
+      position: relative;
+      animation: spin-disc 4s linear infinite;
+    }
+
+    .disc::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 14px;
+      height: 14px;
+      background: #000;
+      border: 2px solid #ffad4d;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .disc.reverse {
+      animation-direction: reverse;
+      animation-duration: 5.5s;
+    }
+
+    @keyframes spin-disc {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 500px) {
+      .disc {
+        width: 84px;
+        height: 84px;
+      }
+    }
+
     @media (max-width: 900px) {
       .social-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -395,6 +458,21 @@
       </div>
 
       <div class="console">
+
+        <video
+          class="hero-intro-video"
+          autoplay
+          muted
+          loop
+          playsinline
+        >
+          <source src="./promax-beat-lab-animated-intro.mp4" type="video/mp4">
+        </video>
+
+        <div class="disc-pair">
+          <div class="disc"></div>
+          <div class="disc reverse"></div>
+        </div>
 
         <div class="screen">
           <div class="wave"></div>
