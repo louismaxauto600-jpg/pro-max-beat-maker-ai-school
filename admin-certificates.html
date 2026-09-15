@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — Sètifika PRO-MAX Beat Maker</title>
+<style>
+  body {
+    background: radial-gradient(circle at top, #1a0d00, #000000);
+    color: #ffad4d;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+  }
+  h1 { color: #ff7900; font-size: 1.4rem; }
+  .card {
+    border: 1px solid #6d3000;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 14px;
+    background: #0a0500;
+  }
+  .card h3 { margin: 0 0 8px; color: #ff7900; }
+  .card p { margin: 4px 0; font-size: 0.9rem; }
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+  }
+  .badge.pending { background: #663300; color: #ffcc80; }
+  .badge.confirmed { background: #145a32; color: #a9dfbf; }
+  button {
+    margin-top: 10px;
+    margin-right: 8px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .btn-confirm { background: #ff7900; color: #000; }
+  .btn-cert { background: #2ecc71; color: #000; }
+  #loginGate {
+    text-align: center;
+    padding: 60px 20px;
+  }
+  #loginGate input {
+    padding: 12px;
+    width: 100%;
+    max-width: 300px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: 1px solid #ff7900;
+    background: #000;
+    color: #fff;
+  }
+  #loginGate button {
+    background: #ff7900;
+    color: #000;
+    padding: 12px 24px;
+  }
+</style>
+</head>
+<body>
+
+<div id="loginGate">
+  <h1>Admin — Konekte</h1>
+  <input type="email" id="adminEmail" placeholder="Imèl admin">
+  <br>
+  <input type="password" id="adminPassword" placeholder="Modpas">
+  <br>
+  <button id="loginBtn">Konekte</button>
+  <p id="loginError" style="color:#ff5c5c;"></p>
+</div>
+
+<div id="adminPanel" style="display:none;">
+  <h1>🎓 Demand Sètifika — PRO-MAX Beat Maker</h1>
+  <div id="requestList">Ap chaje...</div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script src="./admin-certificates.js"></script>
+
+</body>
+</html>
+
