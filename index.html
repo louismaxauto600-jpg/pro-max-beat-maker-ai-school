@@ -19,9 +19,6 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
   >
 
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-
   <style>
     .brand-logo {
       width: 48px;
@@ -30,6 +27,39 @@
       border: 1px solid #ff7900;
       border-radius: 50%;
       box-shadow: 0 0 12px rgba(255, 121, 0, 0.4);
+    }
+
+    .hero-video-frame {
+      position: relative;
+      width: min(95vw, 640px);
+      margin: 20px auto 10px;
+      overflow: hidden;
+      border: 2px solid #ff7900;
+      border-radius: 24px;
+      background: #000000;
+      box-shadow: 0 0 24px rgba(255, 121, 0, 0.4);
+    }
+
+    .hero-intro-video {
+      width: 100%;
+      display: block;
+      object-fit: contain;
+      background: #000000;
+    }
+
+    .hero-sound-btn {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      z-index: 10;
+      padding: 9px 13px;
+      border: 1px solid #ff7900;
+      border-radius: 999px;
+      color: #ff7900;
+      background: rgba(0, 0, 0, 0.9);
+      cursor: pointer;
+      font-size: 0.6rem;
+      font-weight: 1000;
     }
 
     .professor-information {
@@ -174,93 +204,6 @@
     .social-grid a:hover .truth-icon {
       color: #000000;
       border-color: #000000;
-    }
-
-    #studentName,
-    #studentPhone {
-      background-color: #000000 !important;
-      color: #ffad4d !important;
-      border: 1px solid #ff7900 !important;
-      -webkit-text-fill-color: #ffad4d !important;
-      caret-color: #ffad4d;
-    }
-
-    #studentName:-webkit-autofill,
-    #studentName:-webkit-autofill:hover,
-    #studentName:-webkit-autofill:focus,
-    #studentName:-webkit-autofill:active,
-    #studentPhone:-webkit-autofill,
-    #studentPhone:-webkit-autofill:hover,
-    #studentPhone:-webkit-autofill:focus,
-    #studentPhone:-webkit-autofill:active {
-      -webkit-box-shadow: 0 0 0 1000px #000000 inset !important;
-      box-shadow: 0 0 0 1000px #000000 inset !important;
-      -webkit-text-fill-color: #ffad4d !important;
-      caret-color: #ffad4d !important;
-      transition: background-color 9999s ease-in-out 0s;
-    }
-
-    .hero-intro-video {
-      width: 100%;
-      max-height: 320px;
-      object-fit: cover;
-      border-radius: 14px;
-      border: 2px solid #ff7900;
-      box-shadow: 0 0 22px rgba(255, 121, 0, 0.4);
-      margin-bottom: 14px;
-      display: block;
-    }
-
-    .disc-pair {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 18px;
-      margin: 18px 0;
-    }
-
-    .disc {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at center, #000 0%, #000 8%, #ff9500 9%, #ff7900 40%, #3a1a00 60%, #000 62%, #000 100%);
-      border: 2px solid #ff7900;
-      box-shadow:
-        0 0 20px rgba(255, 121, 0, 0.5),
-        inset 0 0 15px rgba(0, 0, 0, 0.8);
-      position: relative;
-      animation: spin-disc 4s linear infinite;
-    }
-
-    .disc::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 14px;
-      height: 14px;
-      background: #000;
-      border: 2px solid #ffad4d;
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    .disc.reverse {
-      animation-direction: reverse;
-      animation-duration: 5.5s;
-    }
-
-    @keyframes spin-disc {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    @media (max-width: 500px) {
-      .disc {
-        width: 84px;
-        height: 84px;
-      }
     }
 
     @media (max-width: 900px) {
@@ -409,6 +352,31 @@
 
       <div class="hero-glow"></div>
 
+      <div class="hero-video-frame">
+
+        <video
+          class="hero-intro-video"
+          id="heroIntroVideo"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+        >
+          <source src="./pro-max-beat-maker.mp4" type="video/mp4">
+          Browser ou a pa sipòte videyo MP4.
+        </video>
+
+        <button
+          type="button"
+          class="hero-sound-btn"
+          id="heroSoundBtn"
+        >
+          🔊 KOUTE
+        </button>
+
+      </div>
+
       <div class="hero-copy">
 
         <p class="eyebrow">
@@ -458,21 +426,6 @@
       </div>
 
       <div class="console">
-
-        <video
-          class="hero-intro-video"
-          autoplay
-          muted
-          loop
-          playsinline
-        >
-          <source src="./promax-beat-lab-animated-intro.mp4" type="video/mp4">
-        </video>
-
-        <div class="disc-pair">
-          <div class="disc"></div>
-          <div class="disc reverse"></div>
-        </div>
 
         <div class="screen">
           <div class="wave"></div>
@@ -726,7 +679,7 @@
 
         <p
           data-ht="Fini 10 kou yo epi pase egzamen an pou debloke sètifika ou."
-          data-fr="Terminez les 10 cours et réussissez l'examen pour débloquer votre certificat."
+          data-fr="Terminez les 10 cours et réussissez l’examen pour débloquer votre certificat."
           data-en="Complete all 10 courses and pass the exam to unlock your certificate."
         >
           Fini 10 kou yo epi pase egzamen an
@@ -736,13 +689,6 @@
         <input
           id="studentName"
           placeholder="Non konplè elèv la"
-          autocomplete="off"
-        >
-
-        <input
-          id="studentPhone"
-          placeholder="Nimewo telefòn ou (MonCash/NatCash)"
-          autocomplete="off"
         >
 
         <button
@@ -750,7 +696,7 @@
           id="certificateBtn"
           type="button"
         >
-          VOYE DEMAND SÈTIFIKA
+          GENERATE CERTIFICATE
         </button>
 
         <p id="certificateMessage"></p>
@@ -970,8 +916,27 @@
 
   </footer>
 
+  <script>
+    (function () {
+      "use strict";
+      var heroVideo = document.getElementById("heroIntroVideo");
+      var soundBtn = document.getElementById("heroSoundBtn");
+      if (heroVideo && soundBtn) {
+        soundBtn.addEventListener("click", function () {
+          heroVideo.muted = !heroVideo.muted;
+          if (!heroVideo.muted) {
+            heroVideo.currentTime = 0;
+            heroVideo.play().catch(function () {});
+            soundBtn.textContent = "🔇 MUTE";
+          } else {
+            soundBtn.textContent = "🔊 KOUTE";
+          }
+        });
+      }
+    })();
+  </script>
+
   <script src="./javascript.js"></script>
-  <script src="./payment-request.js"></script>
 
 </body>
 </html>
