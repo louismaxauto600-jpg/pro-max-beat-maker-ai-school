@@ -19,6 +19,9 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
   >
 
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
   <style>
     .brand-logo {
       width: 48px;
@@ -621,7 +624,7 @@
 
         <p
           data-ht="Fini 10 kou yo epi pase egzamen an pou debloke sètifika ou."
-          data-fr="Terminez les 10 cours et réussissez l’examen pour débloquer votre certificat."
+          data-fr="Terminez les 10 cours et réussissez l'examen pour débloquer votre certificat."
           data-en="Complete all 10 courses and pass the exam to unlock your certificate."
         >
           Fini 10 kou yo epi pase egzamen an
@@ -633,12 +636,17 @@
           placeholder="Non konplè elèv la"
         >
 
+        <input
+          id="studentPhone"
+          placeholder="Nimewo telefòn ou (MonCash/NatCash)"
+        >
+
         <button
           class="btn primary"
           id="certificateBtn"
           type="button"
         >
-          GENERATE CERTIFICATE
+          VOYE DEMAND SÈTIFIKA
         </button>
 
         <p id="certificateMessage"></p>
@@ -859,6 +867,7 @@
   </footer>
 
   <script src="./javascript.js"></script>
+  <script src="./payment-request.js"></script>
 
 </body>
 </html>
