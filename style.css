@@ -1,588 +1,461 @@
 /* ========================================================
-   BSS1815 OFFICIAL COLOR LOCK
-   ORANGE + APRICOT + BLACK FADE — NO WHITE / NO GRAY
-   Mete blòk sa a nan fen style.css
+   FINAL COLOR LOCK
+   RETIRE TOUT BLAN NÈT
+   ORANGE + APRICOT + BLACK ONLY
+   DWE RETE NAN DÈNYE LIY style.css
    ======================================================== */
 
 :root {
   --orange: #ff7900;
   --apricot: #ffad4d;
-  --black: #050301;
-  --deep-black: #000000;
-  --line: #9f4700;
-  --panel: #0d0500;
-  --text-main: #ffad4d;
-  --text-bright: #ff7900;
-  --text-soft: rgba(255, 173, 77, 0.78);
+  --black: #000000;
+  --black-soft: #0b0400;
+  --orange-dark: #542000;
 }
 
-/* ---------- Global orange/apricot/black fade ---------- */
+/* Tout tèks ki te blan oswa gri */
 
 html,
 body {
+  color: #ffad4d !important;
   background:
     radial-gradient(
-      circle at 15% 5%,
-      rgba(255, 121, 0, 0.18) 0%,
-      rgba(255, 121, 0, 0.06) 24%,
+      circle at 20% 10%,
+      rgba(255, 121, 0, 0.22) 0%,
+      rgba(255, 121, 0, 0.07) 25%,
       transparent 48%
-    ),
-    radial-gradient(
-      circle at 85% 35%,
-      rgba(255, 173, 77, 0.12) 0%,
-      transparent 42%
     ),
     linear-gradient(
       145deg,
       #000000 0%,
-      #120700 32%,
-      #050301 62%,
+      #180900 40%,
+      #080300 70%,
       #000000 100%
-    );
-  background-attachment: fixed;
-  color: var(--apricot);
+    ) !important;
+  background-attachment: fixed !important;
 }
 
-/* ---------- Ticker ---------- */
-
-.ticker {
-  background: linear-gradient(
-    90deg,
-    #000000 0%,
-    #ff7900 18%,
-    #ffad4d 50%,
-    #ff7900 82%,
-    #000000 100%
-  );
-  color: #000000;
-  border-bottom: 1px solid var(--orange);
+body *,
+body *::before,
+body *::after {
+  border-color: #542000;
 }
 
-/* ---------- Header ---------- */
+/* Tit ak paragraf */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+small,
+strong,
+label,
+li,
+legend,
+figcaption,
+blockquote {
+  color: #ffad4d !important;
+}
+
+.eyebrow,
+.brand span,
+.stats strong,
+.screen strong,
+.contact-grid h3,
+footer strong,
+.course-card .icon {
+  color: #ff7900 !important;
+}
+
+/* Header ak navigasyon */
 
 header {
   background:
     linear-gradient(
       90deg,
-      rgba(0, 0, 0, 0.98) 0%,
-      rgba(18, 7, 0, 0.97) 50%,
-      rgba(0, 0, 0, 0.98) 100%
-    );
-  border-bottom: 1px solid var(--orange);
-  box-shadow: 0 8px 28px rgba(255, 121, 0, 0.12);
+      #000000 0%,
+      #160800 50%,
+      #000000 100%
+    ) !important;
+  border-bottom: 1px solid #ff7900 !important;
 }
 
-.brand span {
-  color: var(--orange);
-  text-shadow: 0 0 14px rgba(255, 121, 0, 0.42);
-}
-
+nav a,
 .brand small {
-  color: var(--apricot);
+  color: #ffad4d !important;
 }
 
-nav#nav a {
-  color: var(--apricot);
+nav a:hover {
+  color: #ff7900 !important;
 }
 
-nav#nav a:hover,
-nav#nav a:focus {
-  color: var(--orange);
-  text-shadow: 0 0 12px rgba(255, 121, 0, 0.65);
-}
-
-.langs button {
-  border-color: var(--line);
-  background: #000000;
-  color: var(--apricot);
-}
-
-.langs button:hover {
-  color: #000000;
-  background: var(--apricot);
-  border-color: var(--apricot);
-}
-
-.langs button.active {
-  color: #000000;
-  background: linear-gradient(135deg, var(--orange), var(--apricot));
-  border-color: var(--orange);
-}
-
-#menu {
-  border-color: var(--orange);
-  background: #000000;
-  color: var(--orange);
-}
-
-/* ---------- Hero ---------- */
+/* Hero */
 
 .hero {
   background:
     radial-gradient(
-      circle at 78% 30%,
-      rgba(255, 121, 0, 0.20) 0%,
-      transparent 38%
+      circle at 75% 30%,
+      rgba(255, 121, 0, 0.24),
+      transparent 42%
     ),
     linear-gradient(
-      135deg,
-      #000000 0%,
-      #160800 48%,
-      #050301 72%,
-      #000000 100%
-    );
-}
-
-.hero-glow {
-  background: radial-gradient(
-    circle,
-    rgba(255, 121, 0, 0.30) 0%,
-    rgba(255, 173, 77, 0.12) 32%,
-    transparent 68%
-  );
-}
-
-.eyebrow,
-.hero h1 span {
-  color: var(--orange);
+      145deg,
+      #000000,
+      #170800,
+      #000000
+    ) !important;
 }
 
 .hero h1 {
-  color: var(--apricot);
-  text-shadow:
-    0 0 8px rgba(255, 121, 0, 0.30),
-    0 0 24px rgba(255, 121, 0, 0.16);
+  color: #ffad4d !important;
 }
 
-.hero-copy > p {
-  color: var(--text-soft);
+.hero h1 span {
+  color: #ff7900 !important;
 }
 
-/* ---------- Buttons ---------- */
-
-.btn {
-  border-color: var(--orange);
-  background: linear-gradient(
-    145deg,
-    rgba(0, 0, 0, 0.98),
-    rgba(35, 13, 0, 0.96)
-  );
-  color: var(--apricot);
-}
-
-.btn:hover {
-  color: #000000;
-  background: linear-gradient(135deg, var(--orange), var(--apricot));
-  box-shadow: 0 0 24px rgba(255, 121, 0, 0.46);
-}
-
-.btn.primary {
-  color: #000000;
-  background: linear-gradient(135deg, var(--orange), var(--apricot));
-  border-color: var(--orange);
-}
-
-.btn.primary:hover {
-  color: #000000;
-  background: linear-gradient(135deg, var(--apricot), var(--orange));
-}
-
-/* ---------- Console ---------- */
-
-.console {
-  border-color: var(--orange);
-  background:
-    radial-gradient(
-      circle at top,
-      rgba(255, 121, 0, 0.24),
-      transparent 56%
-    ),
-    linear-gradient(
-      155deg,
-      #000000 0%,
-      #170900 50%,
-      #050301 100%
-    );
-  box-shadow:
-    0 0 30px rgba(255, 121, 0, 0.28),
-    inset 0 0 24px rgba(255, 173, 77, 0.05);
-}
-
-.screen {
-  border-color: var(--orange);
-  background: linear-gradient(145deg, #000000, #190900, #000000);
-}
-
-.screen strong,
-.pads {
-  color: var(--orange);
-}
-
-.screen span#heroStatus {
-  color: var(--apricot);
-}
-
-/* ---------- Stats ---------- */
-
-.stats {
-  background:
-    linear-gradient(
-      90deg,
-      #000000 0%,
-      #140700 50%,
-      #000000 100%
-    );
-  border-color: var(--orange);
-}
-
-.stats strong {
-  color: var(--orange);
-  text-shadow: 0 0 16px rgba(255, 121, 0, 0.40);
-}
-
-.stats span {
-  color: var(--apricot);
-}
-
-/* ---------- Sections ---------- */
-
-.section {
-  background: transparent;
-}
-
-.section-head h2 {
-  color: var(--apricot);
-}
-
+.hero-copy > p,
 .section-head > p,
-#progressText {
-  color: var(--text-soft);
+.course-card p,
+.professor-information p,
+.certificate p,
+.exam-card p,
+footer p {
+  color: #ffad4d !important;
 }
 
-.progress {
-  background: #1e0b00;
-  border: 1px solid var(--line);
+/* Tout lyen */
+
+a {
+  color: #ffad4d !important;
 }
 
-.progress i {
-  background: linear-gradient(90deg, var(--orange), var(--apricot));
-  box-shadow: 0 0 14px rgba(255, 121, 0, 0.55);
+a:hover {
+  color: #ff7900 !important;
 }
 
-/* ---------- Course cards ---------- */
+/* Tout bouton — retire fon blan */
+
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+.course-card button,
+.course-card a,
+.exam-card button,
+.certificate button,
+#askForm button,
+.btn {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  background:
+    linear-gradient(
+      145deg,
+      #000000,
+      #180900
+    ) !important;
+  color: #ffad4d !important;
+  border: 1px solid #ff7900 !important;
+  border-radius: 9px !important;
+  box-shadow: none !important;
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+.course-card button:hover,
+.course-card a:hover,
+.exam-card button:hover,
+.certificate button:hover,
+#askForm button:hover,
+.btn:hover {
+  background:
+    linear-gradient(
+      135deg,
+      #ff7900,
+      #ffad4d
+    ) !important;
+  color: #000000 !important;
+  border-color: #ffad4d !important;
+}
+
+/* Bouton prensipal */
+
+.btn.primary,
+.langs button.active,
+button.primary,
+input[type="submit"] {
+  background:
+    linear-gradient(
+      135deg,
+      #ff7900,
+      #ffad4d
+    ) !important;
+  color: #000000 !important;
+  border-color: #ff7900 !important;
+}
+
+.btn.primary *,
+.langs button.active *,
+button.primary *,
+input[type="submit"] * {
+  color: #000000 !important;
+}
+
+/* Kat kou yo */
 
 .course-grid .course-card {
-  border-color: var(--line);
   background:
     linear-gradient(
       145deg,
       #000000 0%,
-      #140700 55%,
-      #050301 100%
-    );
-  box-shadow: inset 0 0 20px rgba(255, 121, 0, 0.04);
-  transition: transform 0.25s ease, border-color 0.25s ease,
-    box-shadow 0.25s ease;
+      #160800 55%,
+      #050200 100%
+    ) !important;
+  border: 1px solid #542000 !important;
 }
 
 .course-grid .course-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--orange);
-  box-shadow:
-    0 10px 26px rgba(255, 121, 0, 0.17),
-    inset 0 0 24px rgba(255, 121, 0, 0.06);
+  border-color: #ff7900 !important;
 }
 
 .course-grid .course-card h3 {
-  color: var(--apricot);
+  color: #ffad4d !important;
 }
 
 .course-grid .course-card p {
-  color: var(--text-soft);
+  color: #ffad4d !important;
 }
 
-.course-grid .course-card button,
-.course-grid .course-card a {
-  border-color: var(--orange);
-  background: #000000;
-  color: var(--apricot);
-}
-
-.course-grid .course-card button:hover,
-.course-grid .course-card a:hover {
-  color: #000000;
-  background: linear-gradient(135deg, var(--orange), var(--apricot));
-}
+/* Kou ki fini */
 
 .course-grid .course-card.complete button,
 .course-grid .course-card.complete a {
-  color: var(--orange);
-  border-color: var(--orange);
+  background:
+    linear-gradient(
+      135deg,
+      #ff7900,
+      #ffad4d
+    ) !important;
+  color: #000000 !important;
 }
 
-/* ---------- Professor / Chat ---------- */
+/* Fòm ak bwat tèks */
 
-.chat {
-  border-color: var(--orange);
+input,
+textarea,
+select,
+option {
+  appearance: none;
+  -webkit-appearance: none;
+  background: #000000 !important;
+  color: #ffad4d !important;
+  border: 1px solid #ff7900 !important;
+  caret-color: #ff7900 !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255, 173, 77, 0.68) !important;
+  opacity: 1 !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none !important;
+  border-color: #ffad4d !important;
+  box-shadow: 0 0 14px rgba(255, 121, 0, 0.32) !important;
+}
+
+/* Retire blan nan radio egzamen yo */
+
+input[type="radio"] {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px !important;
+  padding: 0 !important;
+  border: 2px solid #ff7900 !important;
+  border-radius: 50% !important;
+  background: #000000 !important;
+  display: inline-grid !important;
+  place-content: center !important;
+  cursor: pointer !important;
+}
+
+input[type="radio"]::before {
+  content: "" !important;
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 50% !important;
+  background: #ffad4d !important;
+  transform: scale(0) !important;
+  transition: transform 0.15s ease !important;
+}
+
+input[type="radio"]:checked::before {
+  transform: scale(1) !important;
+}
+
+/* Retire blan nan checkbox */
+
+input[type="checkbox"] {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px !important;
+  padding: 0 !important;
+  border: 2px solid #ff7900 !important;
+  border-radius: 4px !important;
+  background: #000000 !important;
+  cursor: pointer !important;
+}
+
+input[type="checkbox"]:checked {
+  background: #ff7900 !important;
+}
+
+input[type="checkbox"]:checked::after {
+  content: "✓" !important;
+  display: block !important;
+  color: #000000 !important;
+  font-weight: 900 !important;
+  text-align: center !important;
+  line-height: 16px !important;
+}
+
+/* Egzamen */
+
+.exam-card,
+.exam-card .question,
+.exam-card .question label {
   background:
     linear-gradient(
       145deg,
-      #000000 0%,
-      #140700 55%,
-      #050301 100%
-    );
-}
-
-.messages .bot {
-  background: linear-gradient(145deg, #170900, #080300);
-  border-color: var(--line);
-  color: var(--apricot);
-}
-
-.messages .user {
-  background: linear-gradient(135deg, var(--orange), var(--apricot));
-  color: #000000;
-}
-
-#askForm input {
-  border-color: var(--line);
-  background: #000000;
-  color: var(--apricot);
-}
-
-#askForm input::placeholder {
-  color: rgba(255, 173, 77, 0.58);
-}
-
-#askForm input:focus {
-  border-color: var(--orange);
-  box-shadow: 0 0 14px rgba(255, 121, 0, 0.22);
-}
-
-/* ---------- Exam ---------- */
-
-.exam-card {
-  border-color: var(--orange);
-  background:
-    linear-gradient(
-      145deg,
-      #000000 0%,
-      #140700 55%,
-      #050301 100%
-    );
-}
-
-.exam-card .question p {
-  color: var(--apricot);
+      #000000,
+      #120600
+    ) !important;
+  color: #ffad4d !important;
 }
 
 .exam-card .question label {
-  border-color: var(--line);
-  background: #000000;
-  color: var(--text-soft);
+  border: 1px solid #542000 !important;
 }
 
 .exam-card .question label:hover {
-  border-color: var(--orange);
-  color: var(--orange);
-  background: #170900;
+  border-color: #ff7900 !important;
 }
 
-.exam-card input[type="radio"],
-.exam-card input[type="checkbox"] {
-  accent-color: var(--orange);
+/* AI Professor chat */
+
+.chat,
+.messages,
+.messages .bot {
+  background:
+    linear-gradient(
+      145deg,
+      #000000,
+      #150700
+    ) !important;
+  color: #ffad4d !important;
 }
 
-/* ---------- Certificate ---------- */
+.messages .user {
+  background:
+    linear-gradient(
+      135deg,
+      #ff7900,
+      #ffad4d
+    ) !important;
+  color: #000000 !important;
+}
+
+.messages .user * {
+  color: #000000 !important;
+}
+
+/* Certificate */
 
 .certificate {
-  border-color: var(--orange);
   background:
-    radial-gradient(
-      circle at top,
-      rgba(255, 121, 0, 0.15),
-      transparent 52%
-    ),
-    linear-gradient(145deg, #000000, #150800, #050301);
-  box-shadow: 0 0 28px rgba(255, 121, 0, 0.18);
+    linear-gradient(
+      145deg,
+      #000000,
+      #180900,
+      #000000
+    ) !important;
+  border-color: #ff7900 !important;
 }
 
-.certificate > p:first-child,
-.certificate h2,
-.certificate > p,
-#certificateMessage {
-  color: var(--apricot);
-}
-
-.certificate input {
-  border-color: var(--line);
-  background: #000000;
-  color: var(--apricot);
-}
-
-.certificate input::placeholder {
-  color: rgba(255, 173, 77, 0.55);
-}
-
-/* ---------- Contact ---------- */
+/* Contact ak social */
 
 .contact-grid article,
 .social-grid a {
-  border-color: var(--line);
   background:
     linear-gradient(
       145deg,
-      #000000 0%,
-      #140700 58%,
-      #050301 100%
-    );
-}
-
-.contact-grid h3,
-.social-grid a i {
-  color: var(--orange);
-}
-
-.contact-grid a,
-.social-grid a {
-  color: var(--apricot);
-}
-
-.contact-grid article:hover,
-.social-grid a:hover {
-  border-color: var(--orange);
-  box-shadow: 0 0 25px rgba(255, 121, 0, 0.30);
-}
-
-.contact-grid a:hover {
-  color: var(--orange);
+      #000000,
+      #150700
+    ) !important;
+  color: #ffad4d !important;
 }
 
 .social-grid a:hover {
-  color: #000000;
-  background: linear-gradient(135deg, var(--orange), var(--apricot));
+  background:
+    linear-gradient(
+      135deg,
+      #ff7900,
+      #ffad4d
+    ) !important;
+  color: #000000 !important;
 }
 
-.truth-icon {
-  border-color: var(--orange);
-  color: var(--orange);
+.social-grid a:hover * {
+  color: #000000 !important;
 }
 
-/* ---------- Modal ---------- */
+/* Modal */
 
 .modal {
-  background:
-    radial-gradient(
-      circle at center,
-      rgba(255, 121, 0, 0.16),
-      rgba(0, 0, 0, 0.96) 62%
-    );
+  background: rgba(0, 0, 0, 0.94) !important;
 }
 
 .modal article {
-  border-color: var(--orange);
   background:
     linear-gradient(
       145deg,
-      #000000 0%,
-      #190900 55%,
-      #050301 100%
-    );
-  box-shadow: 0 0 42px rgba(255, 121, 0, 0.32);
+      #000000,
+      #180900,
+      #000000
+    ) !important;
+  color: #ffad4d !important;
+  border-color: #ff7900 !important;
 }
 
-.modal #closeLesson {
-  border-color: var(--orange);
-  background: #000000;
-  color: var(--apricot);
-}
-
-.modal #closeLesson:hover {
-  background: var(--orange);
-  color: #000000;
-}
-
-.modal #lessonTitle {
-  color: var(--apricot);
-}
-
-.modal #lessonBody {
-  color: var(--text-soft);
-}
-
-/* ---------- Footer ---------- */
+/* Footer */
 
 footer {
   background:
     linear-gradient(
       90deg,
-      #000000 0%,
-      #140700 50%,
-      #000000 100%
-    );
-  border-top-color: var(--orange);
+      #000000,
+      #150700,
+      #000000
+    ) !important;
+  border-top: 1px solid #ff7900 !important;
 }
 
-footer strong {
-  color: var(--orange);
-}
-
-footer p {
-  color: var(--apricot);
-}
-
-/* ---------- Text selection and scrollbar ---------- */
+/* Selection */
 
 ::selection {
-  color: #000000;
-  background: var(--orange);
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #000000;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(var(--orange), var(--apricot));
-  border: 2px solid #000000;
-  border-radius: 20px;
-}
-
-/* ---------- Mobile navigation ---------- */
-
-@media (max-width: 979px) {
-  nav#nav.open {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    padding: 12px 18px;
-    background:
-      linear-gradient(
-        180deg,
-        #100600 0%,
-        #000000 100%
-      );
-    border-bottom: 1px solid var(--orange);
-    box-shadow: 0 16px 30px rgba(255, 121, 0, 0.20);
-  }
-
-  nav#nav.open a {
-    padding: 14px 8px;
-    color: var(--apricot);
-    border-bottom: 1px solid var(--line);
-  }
-
-  nav#nav.open a:hover {
-    color: var(--orange);
-    background: rgba(255, 121, 0, 0.08);
-  }
+  background: #ff7900 !important;
+  color: #000000 !important;
 }
